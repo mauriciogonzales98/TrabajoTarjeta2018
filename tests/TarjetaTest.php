@@ -33,7 +33,13 @@ class TarjetaTest extends TestCase {
 
         $saldoAnterior = $tarjeta->obtenerSaldo();
         $this->assertTrue($tarjeta->recargar(510,15));
-        $this->assertEquals($tarjeta->obtenerSaldo(), $saldoAnterior + 510,15 +);
+        $this->assertEquals($tarjeta->obtenerSaldo(), $saldoAnterior + 510.15 + 81.93);
+
+        $saldoAnterior = $tarjeta->obtenerSaldo();
+        $this->assertTrue($tarjeta->recargar(510,15));
+        $this->assertEquals($tarjeta->obtenerSaldo(), $saldoAnterior + 962.59 + 221.58);
+
+
         
     }
 
