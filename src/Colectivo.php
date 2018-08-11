@@ -16,15 +16,15 @@ class Colectivo implements ColectivoInterface {
   	}
 
     
-    public function linea(){
+    public function getlinea(){
     	return $this->linea;
     }
 
-    public function empresa(){
+    public function getempresa(){
     	return $this->empresa;
     }
 
-    public function numero(){
+    public function getnumero(){
     	return $this->numero;
     }
 
