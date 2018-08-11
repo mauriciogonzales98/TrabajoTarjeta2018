@@ -19,16 +19,12 @@ class Tarjeta implements TarjetaInterface {
 
       /*
       Devuelve el saldo despues de pagar un voleto */
-      public function baja($precio){
+      public function baja() {
         $this->saldo=$this->saldo-$precio;
-  
-
       }      
 
     /*
       Devuelve el saldo que le queda a la tarjeta. */
-     
-      @return $this->saldo;
      
     public function obtenerSaldo() {
       return $this->saldo;
