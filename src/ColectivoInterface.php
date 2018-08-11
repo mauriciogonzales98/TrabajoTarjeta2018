@@ -16,6 +16,7 @@ interface ColectivoInterface {
      *
      * @return string
      */
+
     public function empresa();
 
     /**
@@ -24,6 +25,7 @@ interface ColectivoInterface {
      * @return int
      */
     public function numero();
+
 
     /**
      * Paga un viaje en el colectivo con una tarjeta en particular.
@@ -34,6 +36,7 @@ interface ColectivoInterface {
      *  El boleto generado por el pago del viaje. O FALSE si no hay saldo
      *  suficiente en la tarjeta.
      */
-    public function pagarCon(TarjetaInterface $tarjeta);
+    public function pagarCon(TarjetaInterface $tarjeta, $precio);
+
 
 }

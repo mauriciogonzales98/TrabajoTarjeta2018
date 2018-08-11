@@ -22,4 +22,11 @@ interface TarjetaInterface {
      */
     public function obtenerSaldo();
 
+    /**
+     * Devuelve el saldo despues de pagar
+     *
+     * @return int
+     */
+    public function baja($precio);
+
 }
