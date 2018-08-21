@@ -27,6 +27,6 @@ interface TarjetaInterface {
      *
      * @return int
      */
-    public function baja($precio);
+        public function restarSaldo($boleto)
 
 }

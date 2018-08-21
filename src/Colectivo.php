@@ -37,7 +37,7 @@ class Colectivo implements ColectivoInterface {
 
 			}
     		else{
-    		return else;
+    		return false;
     		}
     }
 
