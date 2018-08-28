@@ -46,17 +46,17 @@ class TarjetaTest extends TestCase {
     public function testFranquiciaMedia(){
 
       $franquicia = new Tarjeta();
-       $this->assertTrue($tarjeta->recargar(10));
-        $this->assertTrue($tarjeta->restarSaldo());
-         $this->assertEquals($tarjeta->obtenerSaldo(),2.6);
+       $this->assertTrue($franquicia->recargar(10));
+        $this->assertTrue($franquicia->restarSaldo());
+         $this->assertEquals($franquicia->obtenerSaldo(),2.6);
 
     }
        public function testFranquiciaMedia(){
 
       $franquicia = new Tarjeta();
-       $this->assertTrue($tarjeta->recargar(10));
-        $this->assertTrue($tarjeta->restarSaldo());
-         $this->assertEquals($tarjeta->obtenerSaldo(),10);
+       $this->assertTrue($franquicia->recargar(10));
+        $this->assertTrue($franquicia->restarSaldo());
+         $this->assertEquals($franquicia->obtenerSaldo(),10);
 
     }
 
