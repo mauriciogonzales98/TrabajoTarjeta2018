@@ -47,6 +47,7 @@ class Tarjeta implements TarjetaInterface {
       else 
       {
         echo "El monto ingresado no es valido";
+        return false;
       }
       }
 
@@ -67,6 +68,7 @@ class Tarjeta implements TarjetaInterface {
       else 
       {
         echo "El monto ingresado no es valido";
+          return false;
       }
       }
     }
