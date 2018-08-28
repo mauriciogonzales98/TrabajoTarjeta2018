@@ -4,7 +4,7 @@ namespace TrabajoTarjeta;
 
 class Colectivo implements ColectivoInterface {
   
-  	$precio=14.80;
+  	public $precio=14.80;
   	protected $linea;
   	protected $empresa;
   	protected $numero;
