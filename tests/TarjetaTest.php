@@ -51,7 +51,7 @@ class TarjetaTest extends TestCase {
          $this->assertEquals($franquicia->obtenerSaldo(),2.6);
 
     }
-       public function testFranquiciaMedia(){
+    public function testFranquiciaCompleta(){
 
       $franquicia = new Tarjeta();
        $this->assertTrue($franquicia->recargar(10));
