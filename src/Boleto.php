@@ -10,24 +10,34 @@ class Boleto implements BoletoInterface {
 
     protected $tarjeta;
 
-    public    $fecha;
+    protected $fecha;
 
     protected $tipo;
 
     protected $totalabonado;
 
-    protected $pluspagado;
+    protected $pagaplus;
 
-    public function __construct($valor, $colectivo, $tarjeta,,$tipo,$totalabonado,$pluspagado) {
+   
+
+    public function __construct($valor, $colectivo, $tarjeta,$fecha,$tipo,$pluspagado) {
         $this->valor = $valor;
         $this->colectivo = $colectivo;
         $this->tarjeta = $tarjeta;
-        
+        $this->fecha =$fecha;
         $this->tipo = $tipo;
-        $this->totalabonado = $totalabonado;
-        $this->pluspagado = $pluspagado;
+        $this->pagaplus = $pagaplus;
 
 
+    }
+
+      /**
+     * Devuelve el valor del boleto.
+     *
+     * @return int
+     */
+    public function obtenerSaldotarjeta() {
+        return $this->tarjeta->obtenerSaldo();
     }
 
     /**
@@ -40,6 +50,24 @@ class Boleto implements BoletoInterface {
     }
 
      /**
+     * Devuelve el valor del boleto.
+     *
+     * @return int
+     */
+    public function obtenePluspagado() {
+        return $this->pagaplus;
+    }
+
+     /**
+     * Devuelve el ID tarjeta.
+     *
+     * @return int
+     */
+    public function obtenerIDtarjeta() {
+        return $this->tarjeta->obtenerID();
+    }
+
+     /**
      * Devuelve la fecha de emision del boleto.
      *
      * @return int
@@ -47,6 +75,26 @@ class Boleto implements BoletoInterface {
     public function obtenerFecha() {
         return $this->fecha;
     }
+        /**
+     * Devuelve el Tipo de la tarjeta.
+     *
+     * @return int
+     */
+    public function obtenerTipo() {
+        return get_class($this->tarjeta);
+    }
+
+          /**
+     * Devuelve  Total abonado.
+     *
+     * @return int
+     */
+    
+
+    
+
+
+
 
 
 
