@@ -107,7 +107,7 @@ class Tarjeta implements TarjetaInterface {
           
         }
 
-        if($saldo < $this->precio){
+        if($this->saldo < $this->precio){
           if($viajePlus > 0){
             $viajePlus -= 1;
             
