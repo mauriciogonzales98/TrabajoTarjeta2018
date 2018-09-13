@@ -16,6 +16,7 @@ class Tarjeta implements TarjetaInterface {
     protected $tipo=0;
 
     protected $ultimoboleto=0;
+
     
 
     public function recargar($monto) {
@@ -108,6 +109,7 @@ class Tarjeta implements TarjetaInterface {
     {
         if($this->saldo >= $this->precio){
           $this->saldo -= $this->precio;  
+
           return true;
           
         }
@@ -132,6 +134,10 @@ class Tarjeta implements TarjetaInterface {
     public function obtenerUltimoBoleto(){
         return $this->$ultimoboleto;
     }
+     public function obtenerCant(){
+        return $this->$totaldeviajes;
+    }
+
 
 
 

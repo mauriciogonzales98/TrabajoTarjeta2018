@@ -76,15 +76,110 @@ class Colectivo implements ColectivoInterface {
     }
 
           else{
-              $ultimo=$tarjeta->obtenerUltimoBoleto()
-              if($fecha-$ultimo>300){
+              $ultimo=$tarjeta->obtenerUltimoBoleto();
+              $tipo  =$tarjeta->obtenerTipo();
+              if($tipo==2){
+               if($fecha-$ultimo>300){
                   return false;
-
-
               }
+            }
+              if($tipo==4){
+                $cantviajes =$tarjeta->obtenerCant();
 
+                if($cantviajes>0){
+
+                   $tarjeta->ultimoboleto=$fecha;
+        $saldo=$tarjeta->obtenerSaldo();
+        $precio=$tarjeta->obtenerPrecio();
+
+        if($tarjeta->obtenercantPlus()==2){
+          
+          if($saldo>$precio){
+            $tarjeta->restarSaldo();
+            $pagaplus=0;
+            $boleto1= new Boleto($precio,$this,$tarjeta,$fecha,$pagaplus);
+            return $boleto1;
+          }else{
+            return false;
+          }
+        }
+        elseif($tarjeta->obtenercantPlus()==1){
+
+          if($saldo>($precio+7.4)){
+              
+            $tarjeta->restarSaldo();
+            $pagaplus=1;
+            $boleto1= new Boleto($precio,$this,$tarjeta,$fecha,$pagaplus);
+            return $boleto1;}
+          else{
+            return false;
+          }
 
         }
+
+        if($saldo>($precio+14.8)){
+              
+            $tarjeta->restarSaldo();
+            $pagaplus=2;
+            $boleto1= new Boleto($precio,$this,$tarjeta,$fecha,$pagaplus);
+            return $boleto1;}
+          else{
+            return false;
+          }
+                }
+
+
+                 else{
+
+                      $tarjeta->ultimoboleto=$fecha;
+        $saldo=$tarjeta->obtenerSaldo();
+        $precio=$tarjeta->obtenerPrecio();
+
+        if($tarjeta->obtenercantPlus()==2){
+          
+          if($saldo>$precio+7.4){
+            $tarjeta->restarSaldo();
+            $pagaplus=0;
+            $boleto1= new Boleto($precio,$this,$tarjeta,$fecha,$pagaplus);
+            return $boleto1;
+          }else{
+            return false;
+          }
+        }
+        elseif($tarjeta->obtenercantPlus()==1){
+
+          if($saldo>($precio+7.4+14.8)){
+              
+            $tarjeta->restarSaldo();
+            $pagaplus=1;
+            $boleto1= new Boleto($precio,$this,$tarjeta,$fecha,$pagaplus);
+            return $boleto1;}
+          else{
+            return false;
+          }
+
+        }
+
+      
+
+        if($saldo>($precio+7.4+14.8+14.8)){
+              
+            $tarjeta->restarSaldo();
+            $pagaplus=2;
+            $boleto1= new Boleto($precio,$this,$tarjeta,$fecha,$pagaplus);
+            return $boleto1;}
+          else{
+            return false;
+          }
+
+
+         }
+       }
+  }
+
+
+
+
   }
 
 
