@@ -27,7 +27,7 @@ class Colectivo implements ColectivoInterface {
     	return $this->numero;
     }
 
-    public function pagarCon(TarjetaiInterface $tarjeta){
+    public function pagarCon(TarjetaInterface $tarjeta){
     		$saldo=$tarjeta->obtenerSaldo();
         $precio=$tarjeta->obtenerPrecio();
         if($tarjeta->obtenercantPlus()==2){
