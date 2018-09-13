@@ -66,13 +66,9 @@ class Colectivo implements ColectivoInterface {
           else{
             return false;
           }
-
-        
-
-      
-    		else{
-    		return false;
-    		}
+        // else{
+    		// return false;
+    		// }
     }
 
 }

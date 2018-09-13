@@ -18,12 +18,15 @@ class Tarjeta implements TarjetaInterface {
       if ($monto == 10 || $monto==20 || $monto == 30 || $monto == 50 || $monto == 100 || $monto == 510.15 || $monto == 962.59) {
           if( $monto == 962.59) {
             $this->saldo += ($monto + 221.58);
+            return true;
           } 
           else {
               if ($monto == 510.15){
                 $this->saldo += ($monto+81.93);
+                return true;
               } else {
                 $this->saldo += $monto;
+                return true;
               }
           }
       }
