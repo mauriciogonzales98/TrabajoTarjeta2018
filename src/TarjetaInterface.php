@@ -27,7 +27,7 @@ interface TarjetaInterface {
      *
      * @return int
      */
-        public function restarSaldo($boleto);
+        public function restarSaldo();
 
 
 
