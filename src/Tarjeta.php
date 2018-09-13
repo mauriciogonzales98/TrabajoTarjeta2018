@@ -11,7 +11,7 @@ class Tarjeta implements TarjetaInterface {
 
     protected $totaldeviajes=0;
 
-    protected $IDtarjeta=rand();
+    protected $IDtarjeta=0;
     
 
     public function recargar($monto) {
@@ -92,7 +92,8 @@ class Tarjeta implements TarjetaInterface {
     public function obtenerPrecio(){
       return $this->$precio;
     }
-      public function obtenerID(){
+    public function obtenerID(){
+      $this->$IDtarjeta=rand();
       return $this->$IDtarjeta;
     }
 
