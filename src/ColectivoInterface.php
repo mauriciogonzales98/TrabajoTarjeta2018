@@ -9,7 +9,7 @@ interface ColectivoInterface {
      *
      * @return string
      */
-    public function linea();
+    public function getlinea();
 
     /**
      * Devuelve el nombre de la empresa. Ejemplo 'Semtur'
@@ -17,14 +17,14 @@ interface ColectivoInterface {
      * @return string
      */
 
-    public function empresa();
+    public function getempresa();
 
     /**
      * Devuelve el numero de unidad. Ejemplo: 12
      *
      * @return int
      */
-    public function numero();
+    public function getnumero();
 
 
     /**
