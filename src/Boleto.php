@@ -20,12 +20,11 @@ class Boleto implements BoletoInterface {
 
    
 
-    public function __construct($valor, $colectivo, $tarjeta,$fecha,$tipo,$pluspagado) {
+    public function __construct($valor, $colectivo, $tarjeta, $fecha, $pagaplus) {
         $this->valor = $valor;
         $this->colectivo = $colectivo;
         $this->tarjeta = $tarjeta;
         $this->fecha =$fecha;
-        $this->tipo = $tipo;
         $this->pagaplus = $pagaplus;
 
 

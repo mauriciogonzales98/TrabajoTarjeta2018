@@ -4,7 +4,6 @@ namespace TrabajoTarjeta;
 
 class Colectivo implements ColectivoInterface {
   
-  	$precio=14.80;
   	protected $linea;
   	protected $empresa;
   	protected $numero;
@@ -28,13 +27,15 @@ class Colectivo implements ColectivoInterface {
     	return $this->numero;
     }
 
-    public function pagarCon(TarjetaiInterface $tarjeta,$precio){
+    public function pagarCon(TarjetaiInterface $tarjeta){
     		$saldo=$tarjeta->obtenerSaldo();
+        $precio=$tarjeta->obtenerPrecio();
         if($tarjeta->obtenercantPlus()=2){
     			
           if($saldo>$precio){
             $tarjeta->restarSaldo();
-            $boleto1= new Boleto($precio,$this,$tarjeta);
+            $pagaplus=0;
+            $boleto1= new Boleto($precio,$this,$tarjeta,$fecha,$pagaplus);
             return $boleto1;
           }else{
             return false;
@@ -46,7 +47,7 @@ class Colectivo implements ColectivoInterface {
               
             $tarjeta->restarSaldo();
             $pagaplus=1;
-            $boleto1= new Boleto($precio,$this,$tarjeta,$pagaplus);
+            $boleto1= new Boleto($precio,$this,$tarjeta,$fecha,$pagaplus);
             return $boleto1;}
           else{
             return false;
@@ -60,7 +61,7 @@ class Colectivo implements ColectivoInterface {
               
             $tarjeta->restarSaldo();
             $pagaplus=2;
-            $boleto1= new Boleto($precio,$this,$tarjeta,$pagaplus);
+            $boleto1= new Boleto($precio,$this,$tarjeta,$fecha,$pagaplus);
             return $boleto1;}
           else{
             return false;

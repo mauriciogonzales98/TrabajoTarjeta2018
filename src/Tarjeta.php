@@ -9,7 +9,7 @@ class Tarjeta implements TarjetaInterface {
 
     protected $viajePlus=2;
 
-    protected$totaldeviajes=0;
+    protected $totaldeviajes=0;
 
     protected $IDtarjeta=rand();
     
@@ -29,7 +29,7 @@ class Tarjeta implements TarjetaInterface {
       }
       else 
       {
-        echo "El monto ingresado no es valido";
+        return FALSE;
       }
 
         }
@@ -73,7 +73,7 @@ class Tarjeta implements TarjetaInterface {
       //   echo "El monto ingresado no es valido";
       // }
       // }
-    }
+    //}
 
       /*
       Devuelve el saldo despues de pagar un voleto */
@@ -111,7 +111,6 @@ class Tarjeta implements TarjetaInterface {
         } 
       
         if($viajePlus== 0){
-          echo "CONSUMIO SUS 2 VIAJES PLUS RECARGUE SU TARJETA";
           return false;
         }
     }
