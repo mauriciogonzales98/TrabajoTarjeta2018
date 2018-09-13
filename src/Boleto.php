@@ -80,7 +80,7 @@ class Boleto implements BoletoInterface {
      * @return int
      */
     public function obtenerTipo() {
-        return get_class($this->tarjeta);
+        return $this->tarjeta->obtenerTipo();
     }
 
           /**

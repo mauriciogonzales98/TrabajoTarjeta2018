@@ -12,6 +12,10 @@ class Tarjeta implements TarjetaInterface {
     protected $totaldeviajes=0;
 
     protected $IDtarjeta=0;
+
+    protected $tipo=0;
+
+    protected $ultimoboleto=0;
     
 
     public function recargar($monto) {
@@ -120,6 +124,15 @@ class Tarjeta implements TarjetaInterface {
           return false;
         }
     }
+
+    public function obtenerTipo(){
+        return $this->$tipo;
+    }
+
+    public function obtenerUltimoBoleto(){
+        return $this->$ultimoboleto;
+    }
+
 
 
 }

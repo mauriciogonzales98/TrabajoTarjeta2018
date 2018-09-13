@@ -27,8 +27,12 @@ class Colectivo implements ColectivoInterface {
     	return $this->numero;
     }
 
-    public function pagarCon(TarjetaInterface $tarjeta){
-    		$saldo=$tarjeta->obtenerSaldo();
+    public function pagarCon(TarjetaInterface $tarjeta, TiempoInterface $fecha){
+    		
+
+        if($tarjeta->obtenerUltimoBoleto()==0){
+          $tarjeta->ultimoboleto=$fecha;
+        $saldo=$tarjeta->obtenerSaldo();
         $precio=$tarjeta->obtenerPrecio();
         if($tarjeta->obtenercantPlus()==2){
     			
@@ -70,5 +74,20 @@ class Colectivo implements ColectivoInterface {
     		// return false;
     		// }
     }
+
+          else{
+              $ultimo=$tarjeta->obtenerUltimoBoleto()
+              if($fecha-$ultimo>300){
+                  return false;
+
+
+              }
+
+
+        }
+  }
+
+
+
 
 }
