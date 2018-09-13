@@ -30,12 +30,8 @@ interface TarjetaInterface {
         public function restarSaldo($boleto);
 
 
-        /**
-     * recarga el saldo de la tarjeta
-     *
-     * @return int
-     */
-        public function recargar($monto);
+
+
 
            /**
      * Obtiene cantidad de plus de la tarjeta
