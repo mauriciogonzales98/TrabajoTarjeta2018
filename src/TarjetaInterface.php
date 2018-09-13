@@ -27,7 +27,7 @@ interface TarjetaInterface {
      *
      * @return int
      */
-        public function restarSaldo($boleto)
+        public function restarSaldo($boleto);
 
 
         /**
@@ -35,14 +35,14 @@ interface TarjetaInterface {
      *
      * @return int
      */
-        public function recargar($monto)
+        public function recargar($monto);
 
            /**
      * Obtiene cantidad de plus de la tarjeta
      *
      * @return int
      */
-        public function obtenercantPlus()
+        public function obtenercantPlus();
 
 
    /**
@@ -50,7 +50,7 @@ interface TarjetaInterface {
      *
      * @return int
      */
-        public function obtenerPrecio()
+        public function obtenerPrecio();
 
 
    /**
@@ -58,7 +58,7 @@ interface TarjetaInterface {
      *
      * @return int
      */
-        public function obtenerID()
+        public function obtenerID();
 
 
         

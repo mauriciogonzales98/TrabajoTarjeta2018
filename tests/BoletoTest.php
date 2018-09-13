@@ -8,7 +8,7 @@ class BoletoTest extends TestCase {
 
     public function testSaldoCero() {
         $valor = 14.80;
-        $boleto = new Boleto($valor, NULL, NULL, NULL, $plus);
+        $boleto = new Boleto($valor, NULL, NULL, NULL, 2);
 
         $this->assertEquals($boleto->obtenerValor(), $valor);
     }

@@ -55,7 +55,7 @@ class Colectivo implements ColectivoInterface {
 
         }
 
-			}
+			
 
         if($saldo>($precio+29.6)){
               
@@ -67,9 +67,9 @@ class Colectivo implements ColectivoInterface {
             return false;
           }
 
-        }
+        
 
-      }
+      
     		else{
     		return false;
     		}
