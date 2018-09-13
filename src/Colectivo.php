@@ -30,7 +30,7 @@ class Colectivo implements ColectivoInterface {
     public function pagarCon(TarjetaiInterface $tarjeta){
     		$saldo=$tarjeta->obtenerSaldo();
         $precio=$tarjeta->obtenerPrecio();
-        if($tarjeta->obtenercantPlus()=2){
+        if($tarjeta->obtenercantPlus()==2){
     			
           if($saldo>$precio){
             $tarjeta->restarSaldo();
@@ -41,7 +41,7 @@ class Colectivo implements ColectivoInterface {
             return false;
           }
         }
-        elseif($tarjeta->obtenercantPlus()=1){
+        elseif($tarjeta->obtenercantPlus()==1){
 
           if($saldo>($precio+14.8)){
               
