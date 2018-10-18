@@ -25,7 +25,7 @@ class BoletoTest extends TestCase {
 
 
 
-    public function pluspagado() {
+    public function obtenePluspagado() {
     	
 		$valor = 14.80;
 		$pagapls =2;
@@ -36,7 +36,7 @@ class BoletoTest extends TestCase {
     }
 
 
-    public function idtarjeta() {
+    public function obtenerIDtarjeta() {
     
         $tarjeta = new Tarjeta();
         
@@ -47,7 +47,7 @@ class BoletoTest extends TestCase {
        
     }
 
-       public function fecha() {
+       public function obtenerFecha() {
     	
 		$valor = 14.80;
 		$fecha= 100;
@@ -58,7 +58,7 @@ class BoletoTest extends TestCase {
     }
 
 
-      public function tipo() {
+      public function obtenerTipo() {
     
         $tarjeta = new Tarjeta();
         
