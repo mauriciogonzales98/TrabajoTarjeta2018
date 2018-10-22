@@ -13,7 +13,7 @@ class Tarjeta implements TarjetaInterface {
 
     protected $IDtarjeta=0;
 
-    protected $ =0;
+    protected $tipo =0;
 
     protected $ultimoboleto=0;
 
