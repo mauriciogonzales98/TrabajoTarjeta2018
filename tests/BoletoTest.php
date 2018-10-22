@@ -16,6 +16,7 @@ class BoletoTest extends TestCase {
     public function testObtenerSaldotarjeta() {
     
         $tarjeta = new Tarjeta();
+        $valor = 14.80;
         $boleto = new Boleto($valor, NULL, $tarjeta, NULL, 2);
 
         $this->assertEquals($boleto->obtenerSaldo(),0.0);
@@ -28,7 +29,7 @@ class BoletoTest extends TestCase {
     public function testPluspagado() {
     	
 		$valor = 14.80;
-		$pagapls =2;
+		$pagaplus =2;
         $boleto = new Boleto($valor, NULL, NULL, NULL, 2);
 
         $this->assertEquals($boleto->obtenePluspagado(), $pagaplus);
@@ -39,6 +40,7 @@ class BoletoTest extends TestCase {
     public function testIdtarjeta() {
     
         $tarjeta = new Tarjeta();
+        $valor = 14.80;
         
         $boleto = new Boleto($valor, NULL, $tarjeta, NULL, 2);
 
@@ -61,6 +63,7 @@ class BoletoTest extends TestCase {
       public function testTipo() {
     
         $tarjeta = new Tarjeta();
+        $valor = 14.80;
         
         $boleto = new Boleto($valor, NULL, $tarjeta, NULL, 2);
 
