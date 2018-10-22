@@ -6,14 +6,14 @@ use PHPUnit\Framework\TestCase;
 
 class BoletoTest extends TestCase {
 
-    public function testobtenerValor() {
+    public function testObtenerValor() {
         $valor = 14.80;
         $boleto = new Boleto($valor, NULL, NULL, NULL, 2);
 
         $this->assertEquals($boleto->obtenerValor(), $valor);
     }
 
-    public function testobtenerSaldotarjeta() {
+    public function testObtenerSaldotarjeta() {
     
         $tarjeta = new Tarjeta();
         $boleto = new Boleto($valor, NULL, $tarjeta, NULL, 2);
@@ -25,7 +25,7 @@ class BoletoTest extends TestCase {
 
 
 
-    public function testpluspagado() {
+    public function testPluspagado() {
     	
 		$valor = 14.80;
 		$pagapls =2;
@@ -36,7 +36,7 @@ class BoletoTest extends TestCase {
     }
 
 
-    public function testidtarjeta() {
+    public function testIdtarjeta() {
     
         $tarjeta = new Tarjeta();
         
@@ -47,7 +47,7 @@ class BoletoTest extends TestCase {
        
     }
 
-       public function testfecha() {
+       public function testFecha() {
     	
 		$valor = 14.80;
 		$fecha= 100;
@@ -58,7 +58,7 @@ class BoletoTest extends TestCase {
     }
 
 
-      public function testtipo() {
+      public function testTipo() {
     
         $tarjeta = new Tarjeta();
         
@@ -79,15 +79,4 @@ class BoletoTest extends TestCase {
         $this->assertEquals($boleto->obtenerColectivo(),0);
        
     } */
-
-
-
-
-
-
-
-
-
-
-
 }
