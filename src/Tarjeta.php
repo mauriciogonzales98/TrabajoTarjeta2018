@@ -101,7 +101,7 @@ class Tarjeta implements TarjetaInterface {
       return $this->$precio;
     }
     public function obtenerID(){
-      $this->$IDtarjeta=rand();
+      $this->$IDtarjeta=rand(1,30);
       return $this->$IDtarjeta;
     }
 
