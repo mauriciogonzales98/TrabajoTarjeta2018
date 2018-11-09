@@ -21,6 +21,8 @@ class Boleto implements BoletoInterface {
     protected $pagaplus;
 
     protected $saldo;
+
+    protected $descripcion;
    
 
     public function __construct($valor, $colectivo, $tarjeta, $fecha, $pagaplus) {
@@ -32,10 +34,18 @@ class Boleto implements BoletoInterface {
         $this->saldo = $tarjeta->obtenerSaldo();
         $this->tipoTarjeta = $tarjeta->obterTipo();
         $this->totalabonado = $valor + $pagaplus*14.8;
+        if($pagaplus == 0){
+            $this->descripcion = " ";
+        }
+        else{
+            $this->descripcion = "Abona viajes plus: " . (string)$pagaplus*14.8;
+        }
     }
 
+
+
     public function obtenerSaldotarjeta() {
-        return $this->tarjeta->obtenerSaldo();
+        return $this->saldo;
     }
 
     public function obtenerValor() {
@@ -55,30 +65,12 @@ class Boleto implements BoletoInterface {
     }
 
     public function obtenerTipo() {
-        return $this->tarjeta->obtenerTipo();
+        return $this->tipoTarjeta;
     }    
 
     public function obtenerColectivo() {
         return $this->colectivo ;
         
     }
-
-    public function totalPagado() {
-        if($this->tarjeta->obtenercantPlus()==0){
-            $saldo=$this->$tarjeta->obtenerSaldo();
-            return $saldo;
-        elseif ($this->tarjeta->obtenercantPlus()==1) {
-            $saldo=($this->$tarjeta->obtenerSaldo())*2;
-            return $saldo;
-            else {
-               $saldo=($this->$tarjeta->obtenerSaldo())*3; 
-               return $saldo;
-            }
-        }
-        }
-
-    }
-
-
 
 }
