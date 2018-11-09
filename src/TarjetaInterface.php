@@ -56,6 +56,25 @@ interface TarjetaInterface {
      */
         public function obtenerID();
 
+   /**
+     * Obtiene el Tipo de la tarjeta correspondiente
+     *
+     * @return int
+     */
+        public function obtenerTipo();
 
-        
+
+   /**
+     * Obtiene el ultimo boleto emitido con la tarjeta
+     *
+     * @return int
+     */
+        public function obtenerUltimoBoleto();
+
+   /**
+     * Obtiene la cantidad de viajes haechos con la tarjeta correspondiente
+     *
+     * @return int
+     */
+        public function obtenerCant();        
 }

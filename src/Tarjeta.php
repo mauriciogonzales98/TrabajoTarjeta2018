@@ -11,9 +11,11 @@ class Tarjeta implements TarjetaInterface {
 
     protected $totaldeviajes=0;
 
-    protected $IDtarjeta=0;
+    //protected $IDtarjeta=0;
 
-    protected $tipo =0;
+    protected $IDtarjeta=rand(1,30);
+
+    protected $Tipo=0;
 
     protected $ultimoboleto=0;
 
@@ -101,7 +103,7 @@ class Tarjeta implements TarjetaInterface {
       return $this->$precio;
     }
     public function obtenerID(){
-      $this->$IDtarjeta=rand(1,30);
+      //$this->$IDtarjeta=rand(1,30);
       return $this->$IDtarjeta;
     }
 
@@ -126,15 +128,15 @@ class Tarjeta implements TarjetaInterface {
           return false;
         }
     }
-
     public function obtenerTipo(){
-        return $this->$tipo;
+        return $this->$Tipo;
     }
 
     public function obtenerUltimoBoleto(){
         return $this->$ultimoboleto;
     }
      public function obtenerCant(){
+        $this->$totaldeviajes += 1;
         return $this->$totaldeviajes;
     }
 

@@ -8,106 +8,76 @@ class Boleto implements BoletoInterface {
 
     protected $colectivo;
 
-    protected $tarjeta;
+    //protected $tarjeta;
 
     protected $fecha;
 
-    protected $tipo;
+    protected $tipoTarjeta;
+
+    protected $idTarjeta;
 
     protected $totalabonado;
 
     protected $pagaplus;
 
+    protected $saldo;
    
 
     public function __construct($valor, $colectivo, $tarjeta, $fecha, $pagaplus) {
         $this->valor = $valor;
         $this->colectivo = $colectivo;
-        $this->tarjeta = $tarjeta;
-        $this->fecha =$fecha;
+        $this->idTarjeta = $tarjeta->obtenerIDtarjeta();
+        $this->fecha = $fecha;
         $this->pagaplus = $pagaplus;
-
-
+        $this->saldo = $tarjeta->obtenerSaldo();
+        $this->tipoTarjeta = $tarjeta->obterTipo();
+        $this->totalabonado = $valor + $pagaplus*14.8;
     }
 
-      /**
-     * Devuelve el valor del boleto.
-     *
-     * @return int
-     */
     public function obtenerSaldotarjeta() {
         return $this->tarjeta->obtenerSaldo();
     }
 
-    /**
-     * Devuelve el valor del boleto.
-     *
-     * @return int
-     */
     public function obtenerValor() {
         return $this->valor;
     }
 
-     /**
-     * Devuelve el valor del boleto.
-     *
-     * @return int
-     */
     public function obtenePluspagado() {
         return $this->pagaplus;
     }
 
-     /**
-     * Devuelve el ID tarjeta.
-     *
-     * @return int
-     */
     public function obtenerIDtarjeta() {
-        return $this->tarjeta->obtenerID();
+        return $this->idTarjeta;
     }
 
-     /**
-     * Devuelve la fecha de emision del boleto.
-     *
-     * @return int
-     */
     public function obtenerFecha() {
         return $this->fecha;
     }
-        /**
-     * Devuelve el Tipo de la tarjeta.
-     *
-     * @return int
-     */
+
     public function obtenerTipo() {
         return $this->tarjeta->obtenerTipo();
-    }
+    }    
 
-          /**
-     * Devuelve  Total abonado.
-     *
-     * @return int
-     */
-    
-
-    
-
-
-
-
-
-
-    /**
-     * Devuelve un objeto que respresenta el colectivo donde se viajó.
-     *
-     * @return ColectivoInterface
-     */
     public function obtenerColectivo() {
         return $this->colectivo ;
         
     }
 
+    public function totalPagado() {
+        if($this->tarjeta->obtenercantPlus()==0){
+            $saldo=$this->$tarjeta->obtenerSaldo();
+            return $saldo;
+        elseif ($this->tarjeta->obtenercantPlus()==1) {
+            $saldo=($this->$tarjeta->obtenerSaldo())*2;
+            return $saldo;
+            else {
+               $saldo=($this->$tarjeta->obtenerSaldo())*3; 
+               return $saldo;
+            }
+        }
+        }
 
+    }
 
 
 
