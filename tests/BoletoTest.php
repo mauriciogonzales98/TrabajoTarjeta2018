@@ -8,7 +8,7 @@ class BoletoTest extends TestCase {
 
     public function testObtenerValor() {
         $valor = 14.80;
-        $boleto = new Boleto($valor, NULL, NULL, NULL, 2);
+        $boleto = new Boleto($valor, NULL, $tarjeta, NULL, 2);
 
         $this->assertEquals($boleto->obtenerValor(), $valor);
     }
@@ -30,7 +30,7 @@ class BoletoTest extends TestCase {
     	
 		$valor = 14.80;
 		$pagaplus =2;
-        $boleto = new Boleto($valor, NULL, NULL, NULL, 2);
+        $boleto = new Boleto($valor, NULL, $tarjeta, NULL, 2);
 
         $this->assertEquals($boleto->obtenePluspagado(), $pagaplus);
     
@@ -53,7 +53,7 @@ class BoletoTest extends TestCase {
     	
 		$valor = 14.80;
 		$fecha= 100;  //ARRREGLAR
-        $boleto = new Boleto($valor, NULL, NULL, $fecha, 2);
+        $boleto = new Boleto($valor, NULL, $tarjeta, $fecha, 2);
 
         $this->assertEquals($boleto->obtenerFecha(),$fecha );
     
