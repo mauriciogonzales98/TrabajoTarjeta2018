@@ -27,7 +27,7 @@ class Colectivo implements ColectivoInterface {
     	return $this->numero;
     }
 
-    private function pagaNormal(TarjetaInterface $tarjeta, TiempoInterface $fecha, $multiplicador){
+    public function pagaNormal(TarjetaInterface $tarjeta, TiempoInterface $fecha, $multiplicador){
 
           $saldo=$tarjeta->obtenerSaldo();
           $precio=$tarjeta->obtenerPrecio() * $multiplicador;
