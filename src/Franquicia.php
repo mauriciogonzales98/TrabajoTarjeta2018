@@ -6,8 +6,6 @@ class FranquiciaCompleta Extends Tarjeta {
 	 	  $this->precio=0.0;
 
 		 }
-
-
  }
  class FranquiciaMedia Extends Tarjeta {    
 
