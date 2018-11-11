@@ -56,9 +56,9 @@ class Boleto implements BoletoInterface {
         return $this->pagaplus;
     }
 
-    public function obtenerIDtarjeta() {
-        return $this->idTarjeta;
-    }
+    // public function obtenerIDtarjeta() {
+    //     return $this->idTarjeta;
+    // }
 
     public function obtenerFecha() {
         return $this->fecha;
