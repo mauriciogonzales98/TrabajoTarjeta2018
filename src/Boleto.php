@@ -24,19 +24,19 @@ class Boleto implements BoletoInterface {
    
 
     public function __construct($valor, $colectivo, $tarjeta, $fecha, $pagaplus) {
-        $this->$valor = $valor;
-        $this->$colectivo = $colectivo;
-        $this->$idTarjeta = $tarjeta->obtenerIDtarjeta();
-        $this->$fecha = $fecha;
-        $this->$pagaplus = $pagaplus;
-        $this->$saldo = $tarjeta->obtenerSaldo();
-        $this->$tipoTarjeta = $tarjeta->obterTipo();
-        $this->$totalabonado = $valor + $pagaplus*14.8;
+        $this->valor = $valor;
+        $this->colectivo = $colectivo;
+        $this->idTarjeta = $tarjeta->obtenerIDtarjeta();
+        $this->fecha = $fecha;
+        $this->pagaplus = $pagaplus;
+        $this->saldo = $tarjeta->obtenerSaldo();
+        $this->tipoTarjeta = $tarjeta->obterTipo();
+        $this->totalabonado = $valor + $pagaplus*14.8;
         if($pagaplus == 0){
-            $this->$descripcion = " ";
+            $this->descripcion = " ";
         }
         else{
-            $this->$descripcion = "Abona viajes plus: " . (string)$pagaplus*14.8;
+            $this->descripcion = "Abona viajes plus: " . (string)$pagaplus*14.8;
         }
     }
 

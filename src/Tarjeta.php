@@ -18,13 +18,13 @@ class Tarjeta implements TarjetaInterface {
     protected $ultimoboleto;
 
     public function __construct ($saldo=0.0, $precio=14.8, $viajePlus=2, $totaldeviajes=0, $Tipo=0, $ultimoboleto=0){
-      $this->$saldo=$saldo;
-      $this->$precio=$precio;
-      $this->$viajePlus=$viajePlus;
-      $this->$totaldeviajes=$totaldeviajes;
-      $this->$IDtarjeta=rand(1,30);
-      $this->$Tipo=$Tipo;
-      $this->$ultimoboleto=$ultimoboleto;
+      $this->saldo=$saldo;
+      $this->precio=$precio;
+      $this->viajePlus=$viajePlus;
+      $this->totaldeviajes=$totaldeviajes;
+      $this->IDtarjeta=rand(1,30);
+      $this->Tipo=$Tipo;
+      $this->ultimoboleto=$ultimoboleto;
     }
 
     public function recargar($monto) {
@@ -56,15 +56,15 @@ class Tarjeta implements TarjetaInterface {
     }
 
     public function obtenercantPlus(){
-      return $this->$viajePlus;
+      return $this->viajePlus;
     }
 
     public function obtenerPrecio(){
-      return $this->$precio;
+      return $this->precio;
     }
 
     public function obtenerIDtarjeta(){
-      return $this->$IDtarjeta;
+      return $this->IDtarjeta;
     }
 
      public function restarSaldo() {
@@ -85,15 +85,15 @@ class Tarjeta implements TarjetaInterface {
     }
     
     public function obtenerTipo(){
-        return $this->$Tipo;
+        return $this->Tipo;
     }
 
     public function obtenerUltimoBoleto(){
-        return $this->$ultimoboleto;
+        return $this->ultimoboleto;
     }
      public function obtenerCant(){
-        $this->$totaldeviajes += 1;
-        return $this->$totaldeviajes;
+        $this->totaldeviajes += 1;
+        return $this->totaldeviajes;
     }
 
 
