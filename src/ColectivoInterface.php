@@ -38,8 +38,6 @@ interface ColectivoInterface {
      */
     public function pagarCon(TarjetaInterface $tarjeta, TiempoInterface $fecha);
 
-    private function pagaNormal(TarjetaInterface $tarjeta, TiempoInterface $fecha, $multiplicador);
-
     public function esMedioVoleto(TarjetaInterface $tarjeta, TiempoInterface $fecha);
 
     public function esMedioUniversitario(TarjetaInterface $tarjeta, TiempoInterface $fecha);
