@@ -7,6 +7,7 @@ use PHPUnit\Framework\TestCase;
 class BoletoTest extends TestCase {
 
     public function testObtenerValor() {
+        $tarjeta = new Tarjeta();
         $valor = 14.80;
         $boleto = new Boleto($valor, NULL, $tarjeta, NULL, 2);
 
