@@ -20,8 +20,10 @@ class BoletoTest extends TestCase {
         $boleto = new Boleto($valor, NULL, $tarjeta, NULL, 2);
 
         $this->assertEquals($boleto->obtenerSaldotarjeta(),0.0);
+        $tarjeta->recargar(20);
+        $this->assertEquals($boleto->obtenerSaldotarjeta(),20);
         $tarjeta->recargar(14.80);
-        $this->assertEquals($boleto->obtenerSaldotarjeta(),14.80);
+        $this->assertEquals($boleto->obtenerSaldotarjeta(),0.0);
     }
 
 
