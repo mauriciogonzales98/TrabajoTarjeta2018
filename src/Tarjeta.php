@@ -65,7 +65,7 @@ class Tarjeta implements TarjetaInterface {
       return $this->$precio;
     }
 
-    public function obtenerID(){
+    public function obtenerIDtarjeta(){
       return $this->$IDtarjeta;
     }
 
