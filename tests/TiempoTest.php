@@ -7,13 +7,13 @@ use PHPUnit\Framework\TestCase;
 class TiempoTest extends TestCase {
 
     public function testTiempoReal(){
-        $tiempo = new TiempoReal();
+        $tiempo = new Tiempo();
         $t=time();
         $this->assertEquals($tiempo->TiempoReal(),$t);
     }
 
     public function testTiempoFalso(){
-        $tiempo= new tiempoFalso();
+        $tiempo= new Tiempo();
         $this->assertEquals($tiempo->tiempoFalso(),0);
         $tiempo->avanza(1);
         $this->assertEquals($tiempo->tiempoFlaso(),1);
