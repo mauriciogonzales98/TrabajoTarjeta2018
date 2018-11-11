@@ -37,7 +37,7 @@ interface BoletoInterface {
      *
      * @return int
      */
-    public function obtenerIDtarjeta();
+    public function obtenerID();
 
     /**
      * Devuelve la fecha de emision del boleto.
