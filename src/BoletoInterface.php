@@ -23,33 +23,33 @@ interface BoletoInterface {
      *
      * @return int
      */
-    public function obtenerSaldotarjeta()
+    public function obtenerSaldotarjeta();
 
     /**
      * Devuelve el valor del boleto.
      *
      * @return int
      */
-    public function obtenePluspagado() 
+    public function obtenePluspagado();
 
     /**
      * Devuelve el ID tarjeta.
      *
      * @return int
      */
-    public function obtenerIDtarjeta() 
+    public function obtenerIDtarjeta();
 
     /**
      * Devuelve la fecha de emision del boleto.
      *
      * @return int
      */
-    public function obtenerFecha() 
+    public function obtenerFecha();
 
     /**
      * Devuelve el Tipo de la tarjeta.
      *
      * @return int
      */
-    public function obtenerTipo() 
+    public function obtenerTipo();
 }
