@@ -3,10 +3,10 @@ namespace TrabajoTarjeta;
 
 interface TiempoInterface {
 
-	public function Tiempo();
+	public function TiempoReal();
 
 	public function avanza();
 
-	public function tiempo();
+	public function tiempoFalso();
 
 }

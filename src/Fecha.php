@@ -9,7 +9,7 @@ class Tiempo implements TiempoInterface {
 		$this->tiempo =$inicia;
 		}	
 
-	public function Tiempo(){
+	public function TiempoReal(){
 		return time();
 	}
 
