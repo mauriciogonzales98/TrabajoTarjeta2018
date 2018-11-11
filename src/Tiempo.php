@@ -21,7 +21,7 @@ class Tiempo implements TiempoInterface {
 		return $this->tiempo;
 		}
 
-	}
-
-
 }
+
+
+
