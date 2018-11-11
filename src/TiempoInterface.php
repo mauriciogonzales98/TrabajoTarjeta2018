@@ -5,7 +5,7 @@ interface TiempoInterface {
 
 	public function TiempoReal();
 
-	public function avanza();
+	public function avanza($segundos);
 
 	public function tiempoFalso();
 
