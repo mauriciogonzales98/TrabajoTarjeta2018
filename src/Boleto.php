@@ -8,8 +8,6 @@ class Boleto implements BoletoInterface {
 
     protected $colectivo;
 
-    //protected $tarjeta;
-
     protected $fecha;
 
     protected $tipoTarjeta;
@@ -56,7 +54,7 @@ class Boleto implements BoletoInterface {
         return $this->pagaplus;
     }
 
-    public function obtenerIDtarjeta() {
+    public function obtenerID() {
         return $this->idTarjeta;
     }
 

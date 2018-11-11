@@ -10,7 +10,6 @@ class BoletoTest extends TestCase {
         $tarjeta = new Tarjeta();
         $valor = 14.80;
         $boleto = new Boleto($valor, NULL, $tarjeta, NULL, 2);
-
         $this->assertEquals($boleto->obtenerValor(), $valor);
     }
 
@@ -42,11 +41,11 @@ class BoletoTest extends TestCase {
     
         $tarjeta = new Tarjeta();
         $valor = 14.80;
-        
+        $id_tarjeta=$tarjeta->obtenerIDtarjeta();
         $boleto = new Boleto($valor, NULL, $tarjeta, NULL, 2);
 
        
-        $this->assertEquals($boleto->obtenerIDtarjeta(),0);
+        $this->assertEquals($boleto->obtenerID(),$id_tarjeta);
        
     }
 
