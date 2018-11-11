@@ -5,9 +5,11 @@ namespace TrabajoTarjeta;
 use PHPUnit\Framework\TestCase;
 
 class TiempoTest extends TestCase {
+
     public function TiempoTest(){
         $tiempo = new Tiempo();
-        $this->assertEquals($tiempo->Tiempo(),time());
+        $t=time();
+        $this->assertEquals($tiempo->Tiempo(),$t;
     }
 
     public function TiempoFalsoTest(){

@@ -52,7 +52,7 @@ class BoletoTest extends TestCase {
        public function testFecha() {
     	
 		$valor = 14.80;
-		$fecha= 100;  //ARREGLAR
+		$fecha= 100;  //ARRREGLAR
         $boleto = new Boleto($valor, NULL, NULL, $fecha, 2);
 
         $this->assertEquals($boleto->obtenerFecha(),$fecha );

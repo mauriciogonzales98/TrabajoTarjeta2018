@@ -151,9 +151,4 @@ class Colectivo implements ColectivoInterface {
   }
 
 
-  public function pagaTrasbordo(TarjetaInterface $tarjeta, TiempoInterface $fecha){
-
-  }
-
-
 }
