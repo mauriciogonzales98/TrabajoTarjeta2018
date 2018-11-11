@@ -72,14 +72,4 @@ class BoletoTest extends TestCase {
        
     }
 
-    /*public function obtenerColectivo() {
-    	
-        
-        
-        $boleto = new Boleto($valor, NULL, NULL, NULL, 2);
-
-       
-        $this->assertEquals($boleto->obtenerColectivo(),0);
-       
-    } */
 }
