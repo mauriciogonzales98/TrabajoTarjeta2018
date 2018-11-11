@@ -9,7 +9,7 @@ class TiempoTest extends TestCase {
     public function TiempoTest(){
         $tiempo = new Tiempo();
         $t=time();
-        $this->assertEquals($tiempo->Tiempo(),$t;
+        $this->assertEquals($tiempo->Tiempo(),$t);
     }
 
     public function TiempoFalsoTest(){
