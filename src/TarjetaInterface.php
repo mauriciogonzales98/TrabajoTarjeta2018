@@ -54,7 +54,7 @@ interface TarjetaInterface {
      *
      * @return int
      */
-        public function obtenerID();
+        public function obtenerIDtarjeta();
 
    /**
      * Obtiene el Tipo de la tarjeta correspondiente
