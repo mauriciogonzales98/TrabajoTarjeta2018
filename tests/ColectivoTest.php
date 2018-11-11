@@ -17,27 +17,24 @@ class ColectivoTest extends TestCase {
     public function testpagaNormal0Plus(){
     	$colectivo = new Colectivo("132","Semtur","69");
     	$tarjeta = new Tarjeta($saldo=20.0, $viajeplus=0);
-    	$tarjeta->recargar(20);
     	$tiempo = new Tiempo();
         $temp = $tiempo->tiempoFalso();
-    	$this->assertEquals(get_class($colectivo->pagaCon($tajerta, $temp)), "TrabajoTarjeta\Boleto");
+    	$this->assertEquals(get_class($colectivo->pagarCon($tajerta, $temp)), "TrabajoTarjeta\Boleto");
     }
 
     public function testpagaNormal1Plus(){
     	$colectivo = new Colectivo("132","Semtur","69");
     	$tarjeta = new Tarjeta($saldo=20.0, $viajeplus=1);
-    	$tarjeta->recargar(20);
     	$tiempo = new Tiempo();
         $temp = $tiempo->tiempoFalso();
-    	$this->assertEquals(get_class($colectivo->pagaCon($tajerta, $temp)), "TrabajoTarjeta\Boleto");
+    	$this->assertEquals(get_class($colectivo->pagarCon($tajerta, $temp)), "TrabajoTarjeta\Boleto");
     }
 
     public function testpagaNormal2Plus(){
     	$colectivo = new Colectivo("132","Semtur","69");
     	$tarjeta = new Tarjeta($saldo=20.0, $viajeplus=2);
-    	$tarjeta->recargar(20);
     	$tiempo = new Tiempo();
         $temp = $tiempo->tiempoFalso();
-    	$this->assertEquals(get_class($colectivo->pagaCon($tajerta, $temp)), "TrabajoTarjeta\Boleto");
+    	$this->assertEquals(get_class($colectivo->pagarCon($tajerta, $temp)), "TrabajoTarjeta\Boleto");
     }
 }
