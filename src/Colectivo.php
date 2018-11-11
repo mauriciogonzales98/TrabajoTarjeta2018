@@ -34,7 +34,7 @@ class Colectivo implements ColectivoInterface {
         if($tarjeta->obtenercantPlus()==2){
           
           if($saldo>$precio){
-            $tarjeta->restarSaldo();
+            $tarjeta->restarSaldo($precio);
             $pagaplus=0;
             $boleto1= new Boleto($precio,$this,$tarjeta,$fecha,$pagaplus);
             return $boleto1;
@@ -45,9 +45,10 @@ class Colectivo implements ColectivoInterface {
         elseif($tarjeta->obtenercantPlus()==1){
 
           if($saldo>($precio+14.8)){
-              
-            $tarjeta->restarSaldo();
-            $pagaplus=1;
+            
+            $precio += 14.8;
+            $pagaplus=1; 
+            $tarjeta->restarSaldo($precio);
             $boleto1= new Boleto($precio,$this,$tarjeta,$fecha,$pagaplus);
             return $boleto1;
           }
@@ -57,9 +58,10 @@ class Colectivo implements ColectivoInterface {
 
         }
         if($saldo>($precio+29.6)){
-              
-            $tarjeta->restarSaldo();
+            
+            $precio += 29.6;
             $pagaplus=2;
+            $tarjeta->restarSaldo($precio);
             $boleto1= new Boleto($precio,$this,$tarjeta,$fecha,$pagaplus);
             return $boleto1;
           }
@@ -103,7 +105,7 @@ class Colectivo implements ColectivoInterface {
     public function pagarCon(TarjetaInterface $tarjeta, TiempoInterface $fecha){
 
         if($tarjeta->obtenerUltimoBoleto()==0){
-          $tarjeta->ultimoboleto=$fecha;
+          $tarjeta->ultimoboleto=$fecha->tiempoFalso();
           $multiplicador=1;
           return $this->pagaNormal($tarjeta, $fecha, $multiplicador);
         }
@@ -135,7 +137,7 @@ class Colectivo implements ColectivoInterface {
           return false;
         }else{
 
-          $tarjeta->ultimoboleto=$fecha;
+          $tarjeta->ultimoboleto=$fecha->tiempoFalso();
           $saldo=$tarjeta->obtenerSaldo();
           $precio=$tarjeta->obtenerPrecio();
           $dia = date('N');

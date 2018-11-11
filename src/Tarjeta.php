@@ -67,30 +67,44 @@ class Tarjeta implements TarjetaInterface {
       return $this->IDtarjeta;
     }
 
-     public function restarSaldo() {
-        if($this->saldo >= $this->precio){
-          $this->saldo -= $this->precio;  
+    //  public function restarSaldo($pago, $plus) {
+    //     if($this->saldo >= $pago){
+    //       $this->saldo -= $pago;  
+    //       return true;          
+    //     }
+    //     if($this->saldo < $pago){
+    //       if($this->viajePlus > 0){
+    //         $this->viajePlus -= 1;
+    //         return true;
+            
+    //       }
+    //     } 
+    //     if($this->viajePlus== 0){
+    //       return false;
+    //     }
+    // }
+    
+     public function restarSaldo($pago) {
+        if($this->saldo >= $pago){
+          $this->saldo -= $pago;  
+          $this->viajePlus=2;
           return true;          
         }
-        if($this->saldo < $this->precio){
+        else{
           if($this->viajePlus > 0){
             $this->viajePlus -= 1;
-            return true;
-            
+            return true; 
+          }
+          else{
+            return false;
           }
         } 
-        if($this->viajePlus== 0){
-          return false;
-        }
     }
-    
+
     public function obtenerTipo(){
         return $this->Tipo;
     }
 
-    public function obtenerUltimoBoleto(){
-        return $this->ultimoboleto;
-    }
      public function obtenerCant(){
         $this->totaldeviajes += 1;
         return $this->totaldeviajes;

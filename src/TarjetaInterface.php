@@ -27,13 +27,10 @@ interface TarjetaInterface {
      *
      * @return int
      */
-        public function restarSaldo();
+        public function restarSaldo($pago);
 
 
-
-
-
-           /**
+    /**
      * Obtiene cantidad de plus de la tarjeta
      *
      * @return int
