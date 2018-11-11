@@ -30,7 +30,7 @@ class Boleto implements BoletoInterface {
         $this->fecha = $fecha;
         $this->pagaplus = $pagaplus;
         $this->saldo = $tarjeta->obtenerSaldo();
-        $this->tipoTarjeta = $tarjeta->obterTipo();
+        $this->tipoTarjeta = $tarjeta->obtenerTipo();
         $this->totalabonado = $valor + $pagaplus*14.8;
         if($pagaplus == 0){
             $this->descripcion = " ";
