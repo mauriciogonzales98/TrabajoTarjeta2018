@@ -120,7 +120,7 @@ class Colectivo implements ColectivoInterface {
               elseif ($tipo==1){
                 return $this->esFranCompleta($tarjeta, $fecha);
               }
-              else ($tipo==0){
+              else{
                 $multiplicador=1;
                 return $this->pagaNormal($tarjeta, $fecha, $multiplicador);
               }
