@@ -11,8 +11,6 @@ class Tarjeta implements TarjetaInterface {
 
     protected $totaldeviajes;
 
-    //protected $IDtarjeta=0;
-
     protected $IDtarjeta;
 
     protected $Tipo;

@@ -27,7 +27,7 @@ class BoletoTest extends TestCase {
 
 
     public function testPluspagado() {
-    	
+    	$tarjeta = new Tarjeta();
 		$valor = 14.80;
 		$pagaplus =2;
         $boleto = new Boleto($valor, NULL, $tarjeta, NULL, 2);
@@ -50,7 +50,7 @@ class BoletoTest extends TestCase {
     }
 
        public function testFecha() {
-    	
+    	$tarjeta = new Tarjeta();
 		$valor = 14.80;
 		$fecha= 100;  //ARRREGLAR
         $boleto = new Boleto($valor, NULL, $tarjeta, $fecha, 2);
