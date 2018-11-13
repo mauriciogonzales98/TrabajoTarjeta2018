@@ -66,7 +66,19 @@ interface TarjetaInterface {
      *
      * @return int
      */
-        //public function obtenerUltimoBoleto();
+        public function obtenerUltimoBoleto();
+
+
+    /**
+     * Recarga una tarjeta con un cierto valor de dinero.
+     *
+     * @param date $tiempo
+     *
+     * Modifica el valor del ultimo boleto emtido.  
+     */
+
+        public function cambiarUltimoBoleto($tiempo);
+
 
    /**
      * Obtiene la cantidad de viajes haechos con la tarjeta correspondiente

@@ -105,7 +105,8 @@ class Colectivo implements ColectivoInterface {
     public function pagarCon(TarjetaInterface $tarjeta, TiempoInterface $fecha){
 
         if($tarjeta->obtenerUltimoBoleto()==0){
-          $tarjeta->ultimoboleto=$fecha->tiempoFalso();
+          //$tarjeta->ultimoboleto=$fecha->tiempoFalso();
+          $tarjeta->cambiarUltimoBoleto($fecha->tiempoFalso());
           $multiplicador=1;
           return $this->pagaNormal($tarjeta, $fecha, $multiplicador);
         }

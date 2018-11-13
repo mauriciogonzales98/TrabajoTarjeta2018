@@ -15,7 +15,7 @@ class Tarjeta implements TarjetaInterface {
 
     protected $Tipo;
 
-    public $ultimoboleto;
+    protected $ultimoboleto;
 
     public function __construct ($saldo=0.0, $precio=14.8, $viajePlus=2, $totaldeviajes=0, $Tipo=0, $ultimoboleto=0){
       $this->saldo=$saldo;
@@ -103,6 +103,14 @@ class Tarjeta implements TarjetaInterface {
 
     public function obtenerTipo(){
         return $this->Tipo;
+    }
+
+    public function obtenerUltimoBoleto(){
+      return $this->ultimoboleto;
+    }
+
+    public function cambiarUltimoBoleto($tiempo){
+      $this->ultimoboleto = $tiempo;
     }
 
      public function obtenerCant(){
