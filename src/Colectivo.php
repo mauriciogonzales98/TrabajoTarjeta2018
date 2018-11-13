@@ -71,6 +71,7 @@ class Colectivo implements ColectivoInterface {
     }
 
     public function esMedioVoleto(TarjetaInterface $tarjeta, TiempoInterface $fecha){
+        $ultimo = $tarjeta->obtenerUltimoBoleto();
         if($fecha-$ultimo<300){
                   $multiplicador=2;
                   return $this->pagaNormal($tarjeta, $fecha, $multiplicador);
@@ -84,6 +85,7 @@ class Colectivo implements ColectivoInterface {
 
     public function esMedioUniversitario(TarjetaInterface $tarjeta, TiempoInterface $fecha){
       //FALTA QUE NO SE PUEDAN HACER MAS DE DOS VIAJES POR DIA!!!!!!!
+      $ultimo = $tarjeta->obtenerUltimoBoleto();
       if($fecha-$ultimo<300){
                   $multiplicador=2;
 
@@ -105,12 +107,23 @@ class Colectivo implements ColectivoInterface {
     public function pagarCon(TarjetaInterface $tarjeta, TiempoInterface $fecha){
 
         if($tarjeta->obtenerUltimoBoleto()==0){
-          //$tarjeta->ultimoboleto=$fecha->tiempoFalso();
           $tarjeta->cambiarUltimoBoleto($fecha->tiempoFalso());
-          $multiplicador=1;
-          return $this->pagaNormal($tarjeta, $fecha, $multiplicador);
+          // $multiplicador=1;
+          // return $this->pagaNormal($tarjeta, $fecha, $multiplicador);
+          if($tipo==2){
+                return $this->esMedioVoleto($tarjeta, $fecha);
+              }
+              elseif ($tipo==3) {
+                return $this->esMedioUniversitario($tarjeta, $fecha);
+              }
+              elseif ($tipo==1){
+                return $this->esFranCompleta($tarjeta, $fecha);
+              }
+              else{
+                $multiplicador=1;
+                return $this->pagaNormal($tarjeta, $fecha, $multiplicador);
+              }
         }
-
           else{
               $ultimo=$tarjeta->obtenerUltimoBoleto();
               $tipo=$tarjeta->obtenerTipo();
@@ -127,7 +140,7 @@ class Colectivo implements ColectivoInterface {
                 $multiplicador=1;
                 return $this->pagaNormal($tarjeta, $fecha, $multiplicador);
               }
-              }
+          }
     }
 
 
