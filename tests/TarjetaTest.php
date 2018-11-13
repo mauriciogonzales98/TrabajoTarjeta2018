@@ -39,27 +39,30 @@ class TarjetaTest extends TestCase {
         $this->assertTrue($tarjeta->recargar(962.59));
         $this->assertEquals($tarjeta->obtenerSaldo(), $saldoAnterior + 962.59 + 221.58);
 
-        $this->assertFalse($tarjeta->recargar(11));
+
         
     }
 
     public function testFranquiciaMedia(){
 
       $franquicia = new FranquiciaMedia();
-       $this->assertTrue($franquicia->recargar(10));
-       $this->assertTrue($franquicia->restarSaldo(14.8));
-       $this->assertEquals($franquicia->obtenerSaldo(),2.6);
+       $this->assertTrue($franquicia->recargar(20));
+       $this->assertTrue($franquicia->restarSaldo(7.4));
+       $this->assertEquals($franquicia->obtenerSaldo(),12.6);
 
     }
     public function testFranquiciaCompleta(){
 
       $franquicia = new FranquiciaCompleta();
-       $this->assertTrue($franquicia->recargar(10));
+       $this->assertTrue($franquicia->recargar(20));
        $this->assertTrue($franquicia->restarSaldo(14.8));
-       $this->assertEquals($franquicia->obtenerSaldo(),10);
+       $this->assertEquals($franquicia->obtenerSaldo(),20);
 
     }
 
+    public function testMedioUniversitario(){
+      $universitario = new FranquiciaMediaUniversitaria();
+    }
 
 
     /**
@@ -70,5 +73,7 @@ class TarjetaTest extends TestCase {
 
       $this->assertFalse($tarjeta->recargar(15));
       $this->assertEquals($tarjeta->obtenerSaldo(), 0);
+      $this->assertFalse($tarjeta->recargar(11));
+      $this->assertFalse($tarjeta->recargar(20));
   }
 }

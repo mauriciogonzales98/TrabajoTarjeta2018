@@ -52,4 +52,11 @@ interface BoletoInterface {
      * @return int
      */
     public function obtenerTipo();
+
+    /**
+     * Devuelve la descripcion del boleto.
+     *
+     * @return str
+     */
+    public function obtenerDescripcion()
 }

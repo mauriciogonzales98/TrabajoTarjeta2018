@@ -74,4 +74,15 @@ class BoletoTest extends TestCase {
        
     }
 
+        public function testColectivoYDescripcion(){
+
+        $tarjeta = new Tarjeta();
+        $valor = 14.80;
+        $colectivo = new colectivo("132","Semtur","69")
+        $boleto = new Boleto($valor, $colectivo, $tarjeta, NULL, 2);
+        $this->assertEquals($boleto->obtenerColectivo(), $colectivo);
+        $this->assertEquals($boleto->obtenerDescripcion(), " ");
+
+        }
+
 }
