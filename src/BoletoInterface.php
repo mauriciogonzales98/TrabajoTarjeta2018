@@ -58,5 +58,5 @@ interface BoletoInterface {
      *
      * @return str
      */
-    public function obtenerDescripcion()
+    public function obtenerDescripcion();
 }

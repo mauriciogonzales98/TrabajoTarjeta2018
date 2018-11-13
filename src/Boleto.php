@@ -71,4 +71,7 @@ class Boleto implements BoletoInterface {
         
     }
 
+    public function obtenerDescripcion() {
+        return $this->descripcion;
+    }
 }
