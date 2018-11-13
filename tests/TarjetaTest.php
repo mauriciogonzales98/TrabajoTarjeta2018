@@ -60,9 +60,9 @@ class TarjetaTest extends TestCase {
 
     }
 
-    public function testMedioUniversitario(){
-      $universitario = new FranquiciaMediaUniversitaria();
-    }
+    // public function testMedioUniversitario(){
+    //   $universitario = new FranquiciaMediaUniversitaria();
+    // }
 
 
     /**
@@ -75,4 +75,20 @@ class TarjetaTest extends TestCase {
       $this->assertEquals($tarjeta->obtenerSaldo(), 0);
       $this->assertFalse($tarjeta->recargar(11));
   }
+
+    public function testViajePlus() {
+      $tarjeta = new Tarjeta($saldo= 10);
+      $pago = 29.6;
+      $this->assertTrue($tarjeta->restarSaldo($pago));
+
+      $tarjeta1 = new Tarjeta($saldo = 10, $viajeplus = 0);
+      $pago = 29.6;
+      $this->assertFalse($tarjeta1->restarSaldo($pago)); 
+    }
+
+    public function testobtenerCant() {
+      $tarjeta = new Tarjeta();
+      $this->assertEquals($tarjeta->obtenerCant(), 1);
+    }
+    
 }
