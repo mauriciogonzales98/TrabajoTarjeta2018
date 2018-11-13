@@ -82,8 +82,10 @@ class TarjetaTest extends TestCase {
       $this->assertTrue($tarjeta->restarSaldo($pago));
 
       $tarjeta1 = new Tarjeta($saldo=0.0, $precio=14.8, $viajePlus=0, $totaldeviajes=0, $Tipo=0, $ultimoboleto=0);
-      $pago = 29.6;
       $this->assertFalse($tarjeta1->restarSaldo($pago)); 
+
+      $tarjeta2 = new Tarjeta($saldo=0.0, $precio=14.8, $viajePlus=2, $totaldeviajes=0, $Tipo=0, $ultimoboleto=0);
+      $this->assertTrue($tarjeta2->restarSaldo($pago));
     }
 
     public function testobtenerCant() {
