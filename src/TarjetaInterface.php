@@ -13,14 +13,14 @@ interface TarjetaInterface {
      *   Devuelve TRUE si el monto a cargar es válido, o FALSE en caso de que no
      *   sea valido.
      */
-    public function recargar($monto);
+        public function recargar($monto);
 
     /**
      * Devuelve el saldo que le queda a la tarjeta.
      *
      * @return float
      */
-    public function obtenerSaldo();
+        public function obtenerSaldo();
 
     /**
      * Devuelve el saldo despues de pagar
@@ -66,7 +66,7 @@ interface TarjetaInterface {
      *
      * @return int
      */
-        public function obtenerUltimoBoleto();
+        //public function obtenerUltimoBoleto();
 
    /**
      * Obtiene la cantidad de viajes haechos con la tarjeta correspondiente
