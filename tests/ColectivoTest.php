@@ -52,9 +52,9 @@ class ColectivoTest extends TestCase {
         $boleto = $colectivo->pagarCon($tarjeta1, $tiempo);
         $this->assertEquals($colectivo->pagarCon($tarjeta1, $tiempo), $boleto);
 
-        $tarjeta2 = new FranquiciaMedia($saldo=20.0, $precio = 7.4, $viajeplus=2, $tipo = 2);
+        $tarjeta2 = new FranquiciaMedia($saldo=100.0, $precio=7.4, $viajePlus=2, $totaldeviajes=0, $Tipo=2, $ultimoboleto=0);
         $boleto2 = $colectivo->pagarCon($tarjeta2, $tiempo);
-        $this->assertEquals($colectivo->pagarCon($tarjeta2, $tiempo), $boleto);
+        $this->assertEquals($colectivo->pagarCon($tarjeta2, $tiempo), $boleto2);
     }
 
     public function testPagarConMedioUniversitario(){
