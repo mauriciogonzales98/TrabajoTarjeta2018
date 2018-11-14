@@ -62,6 +62,7 @@ class ColectivoTest extends TestCase {
         $tarjeta = new FranquiciaCompleta;
         $tiempo = new Tiempo();
         $colectivo = new Colectivo("132","Semtur","69");
-        $this->assertEquals(get_class($colectivo->pagarCon($tarjeta, $tiempo)), "TrabajoTarjeta\Boleto");
+        $boleto = $colectivo->pagarCon($tarjeta, $tiempo)
+        $this->assertEquals($colectivo->pagarCon($tarjeta, $tiempo), $boleto);
     }
 }
