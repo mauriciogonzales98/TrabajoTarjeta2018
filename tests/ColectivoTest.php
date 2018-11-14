@@ -44,6 +44,7 @@ class ColectivoTest extends TestCase {
 
     public function testPagarConMedio(){
         $tarjeta = new FranquiciaMedia;
+            $tarjeta->recargar(30);
         $tiempo = new Tiempo();
         $colectivo = new Colectivo("132","Semtur","69");
         $this->assertEquals(get_class($colectivo->pagarCon($tarjeta, $tiempo)), "TrabajoTarjeta\Boleto");
@@ -59,7 +60,6 @@ class ColectivoTest extends TestCase {
 
     public function testPagarConFranquiciaCompleta(){
         $tarjeta = new FranquiciaCompleta;
-        $tarjeta->recargar(30);
         $tiempo = new Tiempo();
         $colectivo = new Colectivo("132","Semtur","69");
         $this->assertEquals(get_class($colectivo->pagarCon($tarjeta, $tiempo)), "TrabajoTarjeta\Boleto");
