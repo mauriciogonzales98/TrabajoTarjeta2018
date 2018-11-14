@@ -27,6 +27,77 @@ class Colectivo implements ColectivoInterface {
     	return $this->numero;
     }
 
+    public function pagarCon(TarjetaInterface $tarjeta, TiempoInterface $fecha){
+
+        if($tarjeta->obtenerUltimoBoleto()==0){
+          $tarjeta->cambiarUltimoBoleto($fecha->tiempoFalso());
+          $tipo=$tarjeta->obtenerTipo();
+          if($tipo==2){
+                return $this->esMedioVoleto($tarjeta, $fecha);
+              }
+              elseif ($tipo==3) {
+                return $this->esMedioUniversitario($tarjeta, $fecha);
+              }
+              elseif ($tipo==1){
+                return $this->esFranCompleta($tarjeta, $fecha);
+              }
+              else{
+                $multiplicador=1;
+                return $this->pagaNormal($tarjeta, $fecha, $multiplicador);
+              }
+        }
+          else{
+              $ultimo=$tarjeta->obtenerUltimoBoleto();
+              $tipo=$tarjeta->obtenerTipo();
+              if($tipo==2){
+                return $this->esMedioVoleto($tarjeta, $fecha);
+              }
+              elseif ($tipo==3) {
+                return $this->esMedioUniversitario($tarjeta, $fecha);
+              }
+              elseif ($tipo==1){
+                return $this->esFranCompleta($tarjeta, $fecha);
+              }
+              else{
+                $multiplicador=1;
+                return $this->pagaNormal($tarjeta, $fecha, $multiplicador);
+              }
+          }
+    }
+
+    public function esMedioVoleto(TarjetaInterface $tarjeta, TiempoInterface $fecha){
+        $ultimo = $tarjeta->obtenerUltimoBoleto();
+        if($fecha-$ultimo<300){
+                  $multiplicador=2;
+                  return $this->pagaNormal($tarjeta, $fecha, $multiplicador);
+        }
+        else{
+                $multiplicador=1;
+                return $this->pagaNormal($tarjeta, $fecha, $multiplicador);
+        }
+
+    }
+
+    public function esMedioUniversitario(TarjetaInterface $tarjeta, TiempoInterface $fecha){
+      //FALTA QUE NO SE PUEDAN HACER MAS DE DOS VIAJES POR DIA!!!!!!!
+      $ultimo = $tarjeta->obtenerUltimoBoleto();
+      if($fecha-$ultimo<300){
+                  $multiplicador=2;
+
+                  return $this->pagaNormal($tarjeta, $fecha, $multiplicador);
+        }
+        else{
+                $multiplicador=1;
+                return $this->pagaNormal($tarjeta, $fecha, $multiplicador);
+        }
+
+    }
+
+    public function esFranCompleta(TarjetaInterface $tarjeta, TiempoInterface $fecha){
+                  $multiplicador=0;
+                  return $this->pagaNormal($tarjeta, $fecha, $multiplicador);
+    }
+
     public function pagaNormal(TarjetaInterface $tarjeta, TiempoInterface $fecha, $multiplicador){
 
           $saldo=$tarjeta->obtenerSaldo();
@@ -69,79 +140,6 @@ class Colectivo implements ColectivoInterface {
             return false;
           }
     }
-
-    public function esMedioVoleto(TarjetaInterface $tarjeta, TiempoInterface $fecha){
-        $ultimo = $tarjeta->obtenerUltimoBoleto();
-        if($fecha-$ultimo<300){
-                  $multiplicador=2;
-                  return $this->pagaNormal($tarjeta, $fecha, $multiplicador);
-        }
-        else{
-                $multiplicador=1;
-                return $this->pagaNormal($tarjeta, $fecha, $multiplicador);
-        }
-
-    }
-
-    public function esMedioUniversitario(TarjetaInterface $tarjeta, TiempoInterface $fecha){
-      //FALTA QUE NO SE PUEDAN HACER MAS DE DOS VIAJES POR DIA!!!!!!!
-      $ultimo = $tarjeta->obtenerUltimoBoleto();
-      if($fecha-$ultimo<300){
-                  $multiplicador=2;
-
-                  return $this->pagaNormal($tarjeta, $fecha, $multiplicador);
-        }
-        else{
-                $multiplicador=1;
-                return $this->pagaNormal($tarjeta, $fecha, $multiplicador);
-        }
-
-    }
-
-    public function esFranCompleta(TarjetaInterface $tarjeta, TiempoInterface $fecha){
-                  $multiplicador=0;
-                  return $this->pagaNormal($tarjeta, $fecha, $multiplicador);
-    }
-
-
-    public function pagarCon(TarjetaInterface $tarjeta, TiempoInterface $fecha){
-
-        if($tarjeta->obtenerUltimoBoleto()==0){
-          $tarjeta->cambiarUltimoBoleto($fecha->tiempoFalso());
-          $tipo=$tarjeta->obtenerTipo();
-          if($tipo==2){
-                return $this->esMedioVoleto($tarjeta, $fecha);
-              }
-              elseif ($tipo==3) {
-                return $this->esMedioUniversitario($tarjeta, $fecha);
-              }
-              elseif ($tipo==1){
-                return $this->esFranCompleta($tarjeta, $fecha);
-              }
-              else{
-                $multiplicador=1;
-                return $this->pagaNormal($tarjeta, $fecha, $multiplicador);
-              }
-        }
-          else{
-              $ultimo=$tarjeta->obtenerUltimoBoleto();
-              $tipo=$tarjeta->obtenerTipo();
-              if($tipo==2){
-                return $this->esMedioVoleto($tarjeta, $fecha);
-              }
-              elseif ($tipo==3) {
-                return $this->esMedioUniversitario($tarjeta, $fecha);
-              }
-              elseif ($tipo==1){
-                return $this->esFranCompleta($tarjeta, $fecha);
-              }
-              else{
-                $multiplicador=1;
-                return $this->pagaNormal($tarjeta, $fecha, $multiplicador);
-              }
-          }
-    }
-
 
   public function esValidoTrasbordo(TarjetaInterface $tarjeta, TiempoInterface $fecha){
 
