@@ -18,13 +18,13 @@ class Tarjeta implements TarjetaInterface {
     protected $ultimoboleto;
 
     public function __construct ($saldo=0.0, $precio=14.8, $viajePlus=2, $totaldeviajes=0, $Tipo=0, $ultimoboleto=0){
-      $this->saldo=$saldo;
-      $this->precio=$precio;
-      $this->viajePlus=$viajePlus;
-      $this->totaldeviajes=$totaldeviajes;
-      $this->IDtarjeta=rand(1,30);
-      $this->Tipo=$Tipo;
-      $this->ultimoboleto=$ultimoboleto;
+      $this->saldo = $saldo;
+      $this->precio = $precio;
+      $this->viajePlus = $viajePlus;
+      $this->totaldeviajes = $totaldeviajes;
+      $this->IDtarjeta = rand(1,30);
+      $this->Tipo = $Tipo;
+      $this->ultimoboleto = $ultimoboleto;
     }
 
     public function recargar($monto) {
@@ -67,24 +67,7 @@ class Tarjeta implements TarjetaInterface {
       return $this->IDtarjeta;
     }
 
-    //  public function restarSaldo($pago, $plus) {
-    //     if($this->saldo >= $pago){
-    //       $this->saldo -= $pago;  
-    //       return true;          
-    //     }
-    //     if($this->saldo < $pago){
-    //       if($this->viajePlus > 0){
-    //         $this->viajePlus -= 1;
-    //         return true;
-            
-    //       }
-    //     } 
-    //     if($this->viajePlus== 0){
-    //       return false;
-    //     }
-    // }
-    
-     public function restarSaldo($pago) {
+    public function restarSaldo($pago) {
         if($this->saldo >= $pago){
           $this->saldo -= $pago;  
           $this->viajePlus=2;
