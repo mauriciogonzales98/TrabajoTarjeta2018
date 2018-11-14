@@ -31,15 +31,15 @@ class Colectivo implements ColectivoInterface {
 
         if($tarjeta->obtenerUltimoBoleto()==0){
           $tarjeta->cambiarUltimoBoleto($fecha->tiempoFalso());
-          $tipo=$tarjeta->obtenerTipo();
-          if($tipo==2){
+
+          if($tarjeta->obtenerTipo()==2){
                 $boleto = $this->esMedioVoleto($tarjeta, $fecha);
                 return $boleto;
               }
-              elseif ($tipo==3) {
+              elseif ($tarjeta->obtenerTipo()==3) {
                 return $this->esMedioUniversitario($tarjeta, $fecha);
               }
-              elseif ($tipo==1){
+              elseif ($tarjeta->obtenerTipo()==1){
                 return $this->esFranCompleta($tarjeta, $fecha);
               }
               else{
@@ -49,14 +49,14 @@ class Colectivo implements ColectivoInterface {
         }
           else{
               $ultimo=$tarjeta->obtenerUltimoBoleto();
-              $tipo=$tarjeta->obtenerTipo();
-              if($tipo==2){
+              
+              if($tarjeta->obtenerTipo()==2){
                 return $this->esMedioVoleto($tarjeta, $fecha);
               }
-              elseif ($tipo==3) {
+              elseif ($tarjeta->obtenerTipo()==3) {
                 return $this->esMedioUniversitario($tarjeta, $fecha);
               }
-              elseif ($tipo==1){
+              elseif ($tarjeta->obtenerTipo()==1){
                 return $this->esFranCompleta($tarjeta, $fecha);
               }
               else{
