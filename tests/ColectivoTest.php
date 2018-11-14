@@ -44,10 +44,12 @@ class ColectivoTest extends TestCase {
 
     public function testPagarConMedio(){
         $tarjeta = new FranquiciaMedia;
-            $tarjeta->recargar(30);
         $tiempo = new Tiempo();
         $colectivo = new Colectivo("132","Semtur","69");
         $this->assertFalse($colectivo->pagarCon($tarjeta, $tiempo));
+
+        $tarjeta1 = new Tarjeta($saldo=20.0, $viajeplus=2);
+        $this->assertEquals(get_class($colectivo->pagarCon($tarjeta1, $tiempo)), "TrabajoTarjeta\Boleto");
     }
 
     public function testPagarConMedioUniversitario(){
