@@ -34,7 +34,7 @@ class Colectivo implements ColectivoInterface {
           $tipo=$tarjeta->obtenerTipo();
           if($tipo==2){
                 $boleto = $this->esMedioVoleto($tarjeta, $fecha);
-                return $boleto
+                return $boleto;
               }
               elseif ($tipo==3) {
                 return $this->esMedioUniversitario($tarjeta, $fecha);
