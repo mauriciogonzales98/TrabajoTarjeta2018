@@ -33,8 +33,7 @@ class Colectivo implements ColectivoInterface {
           $tarjeta->cambiarUltimoBoleto($fecha->tiempoFalso());
 
           if($tarjeta->obtenerTipo()==2){
-                $boleto = $this->esMedioVoleto($tarjeta, $fecha);
-                return $boleto;
+                return $this->esMedioVoleto($tarjeta, $fecha);
               }
               elseif ($tarjeta->obtenerTipo()==3) {
                 return $this->esMedioUniversitario($tarjeta, $fecha);
@@ -49,7 +48,7 @@ class Colectivo implements ColectivoInterface {
         }
           else{
               $ultimo=$tarjeta->obtenerUltimoBoleto();
-              
+
               if($tarjeta->obtenerTipo()==2){
                 return $this->esMedioVoleto($tarjeta, $fecha);
               }
@@ -70,8 +69,7 @@ class Colectivo implements ColectivoInterface {
         $ultimo = $tarjeta->obtenerUltimoBoleto();
         if($fecha-$ultimo<300){
                   $multiplicador=2;
-                  $bol = $this->pagaNormal($tarjeta, $fecha, $multiplicador);
-                  return $bol;
+                  return $this->pagaNormal($tarjeta, $fecha, $multiplicador);
         }
         else{
                 $multiplicador=1;
