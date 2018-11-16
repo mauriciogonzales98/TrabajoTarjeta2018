@@ -5,7 +5,7 @@ namespace TrabajoTarjeta;
 
 	function __construct(){  
 		  $this->precio=7.4;
-		  $this->tipo=2;
+		  $this->Tipo=2;
 
 		}
 

@@ -8,7 +8,7 @@ namespace TrabajoTarjeta;
 	public function __construct(){  
 		  $this->precio=7.4;
 		  $this->totalabonado=2;
-		  $this->tipo=3;
+		  $this->Tipo=3;
 		  $this->cantVoletosDia=0;
 		}
  public function getCantVoletos(){
