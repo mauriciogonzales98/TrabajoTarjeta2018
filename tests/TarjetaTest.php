@@ -93,4 +93,8 @@ class TarjetaTest extends TestCase {
       $this->assertEquals($tarjeta->obtenerCant(), 1);
     }
 
+    public function testFMU() {
+      $tarjeta = new FranquiciaMediaUniversitaria();
+      $this->assertEquals($tarjeta->getCantVoletos(),0);
+    }
 }
