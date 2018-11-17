@@ -2,6 +2,8 @@
 
 [![Coverage Status](https://coveralls.io/repos/github/mauriciogonzales98/TrabajoTarjeta2018/badge.svg?branch=master)](https://coveralls.io/github/mauriciogonzales98/TrabajoTarjeta2018?branch=master)
 
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/mauriciogonzales98/TrabajoTarjeta2018/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/mauriciogonzales98/TrabajoTarjeta2018/?branch=master)
+
 # INTEGRANTES: Gonzales Mauricio, Rodriguez Franco.
 # Trabajo Tarjeta: Versión 2018
 
