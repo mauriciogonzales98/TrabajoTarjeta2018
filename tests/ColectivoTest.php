@@ -12,7 +12,7 @@ class ColectivoTest extends TestCase {
     	$this->assertEquals($colectivo1->getlinea(), "132");
     	$this->assertEquals($colectivo1->getempresa(), "Semtur");
     	$this->assertEquals($colectivo1->getnumero(), "69");
-        $this->assertEquals($colectivo1->getbandera(), "N")
+        $this->assertEquals($colectivo1->getbandera(), "N");
     }
 
     public function testpagaNormal0Plus(){
