@@ -13,7 +13,7 @@ class Colectivo implements ColectivoInterface {
   		$this->linea = $linea;
   		$this->empresa = $empresa;
   		$this->numero = $numero;
-      $this->bandera = $bandera
+      $this->bandera = $bandera;
   	}
 
     
