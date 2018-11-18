@@ -3,21 +3,17 @@
 namespace TrabajoTarjeta;
 
 class Tarjeta implements TarjetaInterface {
+
     protected $saldo;
-
     protected $precio;
-
     protected $viajePlus;
-
     protected $totaldeviajes;
-
     protected $IDtarjeta;
-
     protected $Tipo;
-
     protected $ultimoboleto;
-
     protected $boleto;
+    protected $colectivoActual;
+    protected $colectivoAnterior;
 
     public function __construct ($saldo=0.0, $precio=14.8, $viajePlus=2, $totaldeviajes=0, $Tipo=0, $ultimoboleto=0, $boleto=NULL){
       $this->saldo = $saldo;
@@ -87,6 +83,16 @@ class Tarjeta implements TarjetaInterface {
         } 
     }
 
+    public function colectivoAntyAct(ColectivoInterface $colectivo){
+        if($this->colectivoAnterior == NULL){
+          $this->colectivoAnterior = $colectivo;
+        }
+        else{
+          $this->colectivoAnterior = $this->colectivoActual;
+        }
+        $this->colectivoActual = $colectivo;
+    }
+
     public function obtenerTipo(){
         return $this->Tipo;
     }
@@ -110,6 +116,18 @@ class Tarjeta implements TarjetaInterface {
 
     public function cambiarBoleto($bol){
       $this->boleto = $bol;
+    }
+
+    public function lineasDistintas(){
+      $linea1 = $this->colectivoActual;
+      $linea2 = $this->colectivoAnterior;
+
+      if($linea1->getlinea() != $linea2->getlinea() || $linea1->getbandera() != $linea2->getbandera()){
+        return TRUE;
+      }
+      else{
+        return FALSE;
+      }
     }
 
 }

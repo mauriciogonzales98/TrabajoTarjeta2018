@@ -81,14 +81,26 @@ interface TarjetaInterface {
 
 
    /**
-     * Obtiene la cantidad de viajes haechos con la tarjeta correspondiente
+     * Obtiene la cantidad de viajes hechos con la tarjeta correspondiente.
      *
      * @return int
      */
         public function obtenerCant();
 
+
+   /**
+     * Obtiene el ultimo boleto emitido.
+     *
+     * @return int
+     */
         public function obtenerBoleto();
 
+
+   /**
+     * Cambias el ultimo boleto emitido.
+     *
+     * @return int
+     */
         public function cambiarBoleto($bol);
 
 }
