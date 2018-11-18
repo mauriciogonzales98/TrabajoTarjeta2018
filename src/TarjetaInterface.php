@@ -85,5 +85,10 @@ interface TarjetaInterface {
      *
      * @return int
      */
-        public function obtenerCant();        
+        public function obtenerCant();
+
+        public function obtenerBoleto();
+
+        public function cambiarBoleto($bol);
+
 }

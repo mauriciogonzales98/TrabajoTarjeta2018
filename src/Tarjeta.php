@@ -104,5 +104,12 @@ class Tarjeta implements TarjetaInterface {
         return $this->totaldeviajes;
     }
 
+    public function obtenerBoleto(){
+      return $this->boleto;
+    }
+
+    public function cambiarBoleto($bol){
+      $this->boleto = $bol;
+    }
 
 }
