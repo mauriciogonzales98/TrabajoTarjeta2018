@@ -17,7 +17,9 @@ class Tarjeta implements TarjetaInterface {
 
     protected $ultimoboleto;
 
-    public function __construct ($saldo=0.0, $precio=14.8, $viajePlus=2, $totaldeviajes=0, $Tipo=0, $ultimoboleto=0){
+    protected $boleto;
+
+    public function __construct ($saldo=0.0, $precio=14.8, $viajePlus=2, $totaldeviajes=0, $Tipo=0, $ultimoboleto=0, $boleto=NULL){
       $this->saldo = $saldo;
       $this->precio = $precio;
       $this->viajePlus = $viajePlus;
@@ -25,6 +27,7 @@ class Tarjeta implements TarjetaInterface {
       $this->IDtarjeta = rand(1,30);
       $this->Tipo = $Tipo;
       $this->ultimoboleto = $ultimoboleto;
+      $this->boleto = $boleto;
     }
 
     public function recargar($monto) {
