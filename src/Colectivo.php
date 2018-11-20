@@ -154,7 +154,49 @@ class Colectivo implements ColectivoInterface {
     }
 
   public function esTrasbordo(TarjetaInterface $tarjeta, TiempoInterface $fecha){
-      
+      if($tarjeta->lineasDistintas()){
+        $dia=date("w"); //Domingo 0, Sabado 6
+        $hora=date("G"); //Hora de 0 a 23
+
+        if($hora > 22 || $hora < 6){
+          return true;
+        }
+
+        if($dia == 0 || $fecha->esFeriado()){
+          if($hora >= 6 && $hora <=22 && $fecha->TiempoReal()-$tarjeta->obtenerUltimoBoleto()<5400){
+            return true;
+          }
+        }
+
+
+        if($dia >= 1 && $dia <= 5 && $hora >= 6 && $hora <=22){
+          if($fecha->TiempoReal()-$tarjeta->obtenerUltimoBoleto()<3600){
+            //$multiplicador = 0.33;
+            //return $this->pagaNormal($tarjeta, $fecha, $multiplicador);
+            return true; 
+          }
+          else {
+            false;
+          }
+        }
+        elseif($dia == 6){
+          if($hora >= 6 && $hora <=14 && $fecha->TiempoReal()-$tarjeta->obtenerUltimoBoleto()<3600){
+            return true;
+          }
+          elseif($hora > 14 && $hora <= 22 && $fecha->TiempoReal()-$tarjeta->obtenerUltimoBoleto()<5400){
+            return true;
+          }
+          else{
+            return false;
+          }
+        }
+        else{
+          return false;
+        }
+      }//fin del primer if.
+      else{
+        return false;
+      }
 
             
   }

@@ -47,5 +47,5 @@ interface ColectivoInterface {
 
     public function esFranCompleta(TarjetaInterface $tarjeta, TiempoInterface $fecha);
 
-    public function esValidoTrasbordo(TarjetaInterface $tarjeta, TiempoInterface $fecha);
+    public function esTrasbordo(TarjetaInterface $tarjeta, TiempoInterface $fecha);
 }

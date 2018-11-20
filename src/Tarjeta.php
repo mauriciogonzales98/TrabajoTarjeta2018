@@ -90,6 +90,7 @@ class Tarjeta implements TarjetaInterface {
         else{
           $this->colectivoAnterior = $this->colectivoActual;
         }
+
         $this->colectivoActual = $colectivo;
     }
 
