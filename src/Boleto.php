@@ -5,21 +5,13 @@ namespace TrabajoTarjeta;
 class Boleto implements BoletoInterface {
 
     protected $valor;
-
     protected $colectivo;
-
     protected $fecha;
-
     protected $tipoTarjeta;
-
     protected $idTarjeta;
-
     protected $totalabonado;
-
     protected $pagaplus;
-
     protected $saldo;
-
     protected $descripcion;
    
 
