@@ -104,4 +104,12 @@ class ColectivoTest extends TestCase {
         $boleto = $colectivo->pagarCon($tarjeta, $tiempo);
         $this->assertEquals($colectivo->pagarCon($tarjeta, $tiempo), $boleto);
     }
+    public function testTrasbordo(){
+        $tarjeta = new Tarjeta();
+        $tiempo = new Tiempo();
+        $colectivo = new Colectivo("112", "Semtur", "5", "R");
+
+        $this->assertTrue($colectivo->esTrasbordo($tarjeta, $fecha));
+
+    }
 }
