@@ -20,14 +20,6 @@ interface ColectivoInterface {
     public function getempresa();
 
     /**
-     * Devuelve el numero de unidad. Ejemplo: 12
-     *
-     * @return int
-     */
-    public function getnumero();
-
-
-    /**
      * Paga un viaje en el colectivo con una tarjeta en particular.
      *
      * @param TarjetaInterface $tarjeta
