@@ -2,11 +2,12 @@
 namespace TrabajoTarjeta;
 
 class FranquiciaCompleta Extends Tarjeta {    
-	 function __construct(){  
+	
+	function __construct(){  
 	 	  $this->precio=0.0;
 	 	  $this->Tipo=1;
 
-		 }
+	 }
 
 
  }

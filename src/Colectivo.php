@@ -6,13 +6,11 @@ class Colectivo implements ColectivoInterface {
   
   	protected $linea;
   	protected $empresa;
-  	protected $numero;
     protected $bandera;
 
-  	public function __construct ($linea, $empresa, $numero, $bandera){
+  	public function __construct ($linea, $empresa, $bandera){
   		$this->linea = $linea;
   		$this->empresa = $empresa;
-  		$this->numero = $numero;
       $this->bandera = $bandera;
   	}
 
@@ -25,10 +23,6 @@ class Colectivo implements ColectivoInterface {
     	return $this->empresa;
     }
 
-    public function getnumero(){
-    	return $this->numero;
-    }
-
     public function getbandera(){
       return $this->bandera;
     }
@@ -39,41 +33,42 @@ class Colectivo implements ColectivoInterface {
           $tarjeta->cambiarUltimoBoleto($fecha->tiempoFalso());
 
           if($tarjeta->obtenerTipo() == 2){
-                return $this->esMedioVoleto($tarjeta, $fecha);
-              }
-              elseif ($tarjeta->obtenerTipo() == 3) {
-                return $this->esMedioUniversitario($tarjeta, $fecha);
-              }
-              elseif ($tarjeta->obtenerTipo() == 1){
-                return $this->esFranCompleta($tarjeta, $fecha);
-              }
-              else{
-                $multiplicador = 1;
-                return $this->pagaNormal($tarjeta, $fecha, $multiplicador);
-              }
+            return $this->esMedioVoleto($tarjeta, $fecha);
+          }
+          elseif ($tarjeta->obtenerTipo() == 3) {
+            return $this->esMedioUniversitario($tarjeta, $fecha);
+          }
+          elseif ($tarjeta->obtenerTipo() == 1){
+            return $this->esFranCompleta($tarjeta, $fecha);
+          }
+          else{
+            $multiplicador = 1;
+            return $this->pagaNormal($tarjeta, $fecha, $multiplicador);
+          }
         }
           else{
-              $ultimo=$tarjeta->obtenerUltimoBoleto();
+            $ultimo=$tarjeta->obtenerUltimoBoleto();
 
-              if($tarjeta->obtenerTipo() == 2){
-                return $this->esMedioVoleto($tarjeta, $fecha);
-              }
-              elseif ($tarjeta->obtenerTipo() == 3) {
-                return $this->esMedioUniversitario($tarjeta, $fecha);
-              }
-              elseif ($tarjeta->obtenerTipo() == 1){
-                return $this->esFranCompleta($tarjeta, $fecha);
-              }
-              else{
-                $multiplicador = 1;
-                return $this->pagaNormal($tarjeta, $fecha, $multiplicador);
-              }
+            if($tarjeta->obtenerTipo() == 2){
+              return $this->esMedioVoleto($tarjeta, $fecha);
+            }
+            elseif ($tarjeta->obtenerTipo() == 3) {
+              return $this->esMedioUniversitario($tarjeta, $fecha);
+            }
+            elseif ($tarjeta->obtenerTipo() == 1){
+              return $this->esFranCompleta($tarjeta, $fecha);
+            }
+            else{
+              $multiplicador = 1;
+              return $this->pagaNormal($tarjeta, $fecha, $multiplicador);
+            }
           }
     }
 
     public function esMedioVoleto(TarjetaInterface $tarjeta, TiempoInterface $fecha){
         $ultimo = $tarjeta->obtenerUltimoBoleto();
         if($fecha->TiempoReal()-$ultimo<300){
+
                   $multiplicador = 2;
                   return $this->pagaNormal($tarjeta, $fecha, $multiplicador);
         }
@@ -85,17 +80,15 @@ class Colectivo implements ColectivoInterface {
     }
 
     public function esMedioUniversitario(TarjetaInterface $tarjeta, TiempoInterface $fecha){
-      //FALTA QUE NO SE PUEDAN HACER MAS DE DOS VIAJES POR DIA!!!!!!!
       $ultimo = $tarjeta->obtenerUltimoBoleto();
-      if($fecha->TiempoReal()-$ultimo<300){
-                  $multiplicador = 2;
-
-                  return $this->pagaNormal($tarjeta, $fecha, $multiplicador);
-        }
-        else{
-                $multiplicador = 1;
-                return $this->pagaNormal($tarjeta, $fecha, $multiplicador);
-        }
+      if(($fecha->TiempoReal()-$ultimo<300) && $tarjeta->boletosDia($fecha)){
+          $multiplicador = 2;
+          return $this->pagaNormal($tarjeta, $fecha, $multiplicador);
+      }
+      else{
+          $multiplicador = 1;
+          return $this->pagaNormal($tarjeta, $fecha, $multiplicador);
+      }
 
     }
 

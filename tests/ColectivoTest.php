@@ -8,36 +8,35 @@ class ColectivoTest extends TestCase {
 
     public function testAlgoUtil() {
 
-    	$colectivo1= new Colectivo("132","Semtur","69", "N");
+    	$colectivo1= new Colectivo("132","Semtur", "N");
     	$this->assertEquals($colectivo1->getlinea(), "132");
     	$this->assertEquals($colectivo1->getempresa(), "Semtur");
-    	$this->assertEquals($colectivo1->getnumero(), "69");
         $this->assertEquals($colectivo1->getbandera(), "N");
     }
 
     public function testpagaNormal0Plus(){
-    	$colectivo = new Colectivo("132","Semtur","69", "N");
+    	$colectivo = new Colectivo("132","Semtur", "N");
     	$tarjeta = new Tarjeta($saldo=20.0, $viajeplus=0);
     	$tiempo = new Tiempo();
     	$this->assertEquals(get_class($colectivo->pagarCon($tarjeta, $tiempo)), "TrabajoTarjeta\Boleto");
     }
 
     public function testpagaNormal1Plus(){
-    	$colectivo = new Colectivo("132","Semtur","69", "N");
+    	$colectivo = new Colectivo("132","Semtur", "N");
     	$tarjeta = new Tarjeta($saldo=20.0, $viajeplus=1);
     	$tiempo = new Tiempo();
     	$this->assertEquals(get_class($colectivo->pagarCon($tarjeta, $tiempo)), "TrabajoTarjeta\Boleto");
     }
 
     public function testpagaNormal2Plus(){
-    	$colectivo = new Colectivo("132","Semtur","69", "N");
+    	$colectivo = new Colectivo("132","Semtur", "N");
     	$tarjeta = new Tarjeta($saldo=20.0, $viajeplus=2);
     	$tiempo = new Tiempo();
     	$this->assertEquals(get_class($colectivo->pagarCon($tarjeta, $tiempo)), "TrabajoTarjeta\Boleto");
     }
 
     public function testPagaNormal(){
-        $colectivo = new Colectivo("132","Semtur","69", "N");
+        $colectivo = new Colectivo("132","Semtur", "N");
         $tarjeta = new Tarjeta($saldo=0.0, $viajeplus=2);
         $tiempo = new Tiempo();
         $this->assertFalse($colectivo->pagarCon($tarjeta, $tiempo));
@@ -46,7 +45,7 @@ class ColectivoTest extends TestCase {
     public function testPagarConMedio(){
         $tarjeta = new FranquiciaMedia();
         $tiempo = new Tiempo();
-        $colectivo = new Colectivo("132","Semtur","69", "N");
+        $colectivo = new Colectivo("132","Semtur", "N");
         $this->assertFalse($colectivo->pagarCon($tarjeta, $tiempo));
 
         $tarjeta1 = new FranquiciaMedia($saldo=20.0, $precio = 7.4, $viajeplus=2);
@@ -62,14 +61,14 @@ class ColectivoTest extends TestCase {
         $tarjeta = new FranquiciaMediaUniversitaria();
         $tarjeta->recargar(30);
         $tiempo = new Tiempo();
-        $colectivo = new Colectivo("132","Semtur","69", "N");
+        $colectivo = new Colectivo("132","Semtur", "N");
         $this->assertFalse($colectivo->pagarCon($tarjeta, $tiempo));
     }
 
     public function testPagarConFranquiciaCompleta(){
         $tarjeta = new FranquiciaCompleta;
         $tiempo = new Tiempo();
-        $colectivo = new Colectivo("132","Semtur","69", "N");
+        $colectivo = new Colectivo("132","Semtur", "N");
         $boleto = $colectivo->pagarCon($tarjeta, $tiempo);
         $this->assertEquals($colectivo->pagarCon($tarjeta, $tiempo), $boleto);
     }
@@ -77,7 +76,7 @@ class ColectivoTest extends TestCase {
     public function testPagarConMedio2(){
         $tarjeta = new FranquiciaMedia();
         $tiempo = new Tiempo();
-        $colectivo = new Colectivo("132","Semtur","69", "N");
+        $colectivo = new Colectivo("132","Semtur", "N");
         $this->assertFalse($colectivo->pagarCon($tarjeta, $tiempo));
 
         $tarjeta1 = new FranquiciaMedia($saldo=20.0, $precio = 7.4, $viajeplus=2, $ultimoboleto=1);
@@ -93,21 +92,21 @@ class ColectivoTest extends TestCase {
         $tarjeta = new FranquiciaMediaUniversitaria($saldo=100.0, $precio=7.4, $viajePlus=2, $totaldeviajes=0, $Tipo=2, $ultimoboleto=1);
         $tarjeta->recargar(30);
         $tiempo = new Tiempo();
-        $colectivo = new Colectivo("132","Semtur","69", "N");
+        $colectivo = new Colectivo("132","Semtur", "N");
         $this->assertFalse($colectivo->pagarCon($tarjeta, $tiempo));
     }
 
     public function testPagarConFranquiciaCompleta2(){
         $tarjeta = new FranquiciaCompleta($saldo=100.0, $precio=0, $viajePlus=2, $totaldeviajes=0, $Tipo=2, $ultimoboleto=1);
         $tiempo = new Tiempo();
-        $colectivo = new Colectivo("132","Semtur","69", "N");
+        $colectivo = new Colectivo("132","Semtur", "N");
         $boleto = $colectivo->pagarCon($tarjeta, $tiempo);
         $this->assertEquals($colectivo->pagarCon($tarjeta, $tiempo), $boleto);
     }
     public function testTrasbordo(){
         $tarjeta = new Tarjeta();
         $tiempo = new Tiempo();
-        $colectivo = new Colectivo("112", "Semtur", "5", "R");
+        $colectivo = new Colectivo("112", "Semtur", "R");
 
         $this->assertTrue($colectivo->esTrasbordo($tarjeta, $tiempo));
 
