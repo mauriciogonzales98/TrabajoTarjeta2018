@@ -64,10 +64,10 @@ class ColectivoTest extends TestCase {
         $tarjeta = new FranquiciaMedia($saldo = 100);
         $tiempo = new TiempoFalso();
         $colectivo = new Colectivo("132","Semtur", "N");
-        $colectivo->esMedioVoleto();
+        $colectivo->esMedioVoleto($tarjeta, $tiempo);
         $tiempo->Avanzar(100);
         $boleto = $colectivo->esMedioVoleto();
-        $this->assertEquals($colectivo->esMedioVoleto() , $boleto);
+        $this->assertEquals($colectivo->esMedioVoleto($tarjeta, $tiempo) , $boleto);
     }
 
     public function testPagarConMedioUniversitario(){
