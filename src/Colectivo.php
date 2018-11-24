@@ -106,7 +106,7 @@ class Colectivo implements ColectivoInterface {
           if($saldo>$precio){
             $tarjeta->restarSaldo($precio);
             $pagaplus = 0;
-            $boleto1= new Boleto($precio,$this,$tarjeta,$fecha,$pagaplus);
+            $boleto1= new Boleto($precio, $this, $tarjeta, $fecha, $pagaplus);
             $tarjeta->cambiarBoleto($boleto1);
             $tarjeta->colectivoAntyAct($this);
             return $boleto1;
@@ -140,59 +140,54 @@ class Colectivo implements ColectivoInterface {
             $tarjeta->cambiarBoleto($boleto1);
             $tarjeta->colectivoAntyAct($this);
             return $boleto1;
-          }
-          else{
+        }
+        else{
             return false;
-          }
+        }
     }
 
   public function esTrasbordo(TarjetaInterface $tarjeta, TiempoInterface $fecha){
       if($tarjeta->lineasDistintas()){
-        $tiempo = $fecha->TiempoReal();
-        $dia=date("w", $tiempo); //Domingo 0, Sabado 6
-        $hora=date("G", $tiempo); //Hora de 0 a 23
+          $tiempo = $fecha->TiempoReal();
+          $dia=date("w", $tiempo); //Domingo 0, Sabado 6
+          $hora=date("G", $tiempo); //Hora de 0 a 23
 
-        if($hora > 22 || $hora < 6){
-          return true;
-        }
+          if($hora > 22 || $hora < 6){
+              return true;
+          }
 
-        if($dia == 0 || $fecha->esFeriado()){
-          if($hora >= 6 && $hora <=22 && $fecha->TiempoReal()-$tarjeta->obtenerUltimoBoleto()<5400){
-            return true;
+          if($dia == 0 || $fecha->esFeriado()){
+             if($hora >= 6 && $hora <=22 && $fecha->TiempoReal()-$tarjeta->obtenerUltimoBoleto()<5400){
+                return true;
+            }
           }
-        }
 
-
-        if($dia >= 1 && $dia <= 5 && $hora >= 6 && $hora <=22){
-          if($fecha->TiempoReal()-$tarjeta->obtenerUltimoBoleto()<3600){
-            //$multiplicador = 0.33;
-            //return $this->pagaNormal($tarjeta, $fecha, $multiplicador);
-            return true; 
+          if($dia >= 1 && $dia <= 5 && $hora >= 6 && $hora <=22){
+              if($fecha->TiempoReal()-$tarjeta->obtenerUltimoBoleto()<3600){
+                  return true; 
+              }
+              else {
+                  return false;
+              }
           }
-          else {
-            false;
-          }
-        }
-        elseif($dia == 6){
-          if($hora >= 6 && $hora <=14 && $fecha->TiempoReal()-$tarjeta->obtenerUltimoBoleto()<3600){
-            return true;
-          }
-          elseif($hora > 14 && $hora <= 22 && $fecha->TiempoReal()-$tarjeta->obtenerUltimoBoleto()<5400){
-            return true;
+          elseif($dia == 6){
+              if($hora >= 6 && $hora <=14 && $fecha->TiempoReal()-$tarjeta->obtenerUltimoBoleto()<3600){
+                 return true;
+              }
+              elseif($hora > 14 && $hora <= 22 && $fecha->TiempoReal()-$tarjeta->obtenerUltimoBoleto()<5400){
+                  return true;
+              }
+              else{
+                return false;
+              }
           }
           else{
-            return false;
+              return false;
           }
         }
-        else{
-          return false;
-        }
-      }//fin del primer if.
       else{
-        return false;
-      }
-
-            
+          return false;
+      }         
   }
 
 }

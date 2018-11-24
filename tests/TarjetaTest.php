@@ -60,11 +60,6 @@ class TarjetaTest extends TestCase {
 
     }
 
-    // public function testMedioUniversitario(){
-    //   $universitario = new FranquiciaMediaUniversitaria();
-    // }
-
-
     /**
      * Comprueba que la tarjeta no puede cargar saldos invalidos.
      */

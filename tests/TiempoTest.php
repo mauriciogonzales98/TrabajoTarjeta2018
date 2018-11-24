@@ -24,6 +24,8 @@ class TiempoTest extends TestCase {
         
         $tiempo->avanza(59);
         $this->assertEquals($tiempo->tiempoFalso(),60);
+
+        $this->assertFalse($tiempo->esFeriado());
     }
    
 }
