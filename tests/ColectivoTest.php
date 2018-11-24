@@ -61,8 +61,28 @@ class ColectivoTest extends TestCase {
         $this->assertEquals($colectivo->pagarCon($tarjeta2, $tiempo), $boleto3);
     }
 
-    public function testNoMedio(){
+    public function testMedio(){
         $tarjeta = new FranquiciaMedia($saldo = 100);
+        $tiempo = new TiempoFalso();
+        $colectivo = new Colectivo("132","Semtur", "N");
+        $colectivo->pagarCon($tarjeta, $tiempo);
+        $tiempo->Avanzar($segundos = 3600);
+        $boleto = $colectivo->pagarCon($tarjeta, $tiempo); 
+        $this->assertEquals($colectivo->pagarCon($tarjeta, $tiempo) , $boleto);
+    }
+
+    public function testMedioUniversitario(){
+        $tarjeta = new FranquiciaMediaUniversitaria($saldo = 100);
+        $tiempo = new TiempoFalso();
+        $colectivo = new Colectivo("132","Semtur", "N");
+        $colectivo->pagarCon($tarjeta, $tiempo);
+        $tiempo->Avanzar($segundos = 3600);
+        $boleto = $colectivo->pagarCon($tarjeta, $tiempo); 
+        $this->assertEquals($colectivo->pagarCon($tarjeta, $tiempo) , $boleto);
+    }
+
+    public function testCompleta(){
+        $tarjeta = new FranquiciaCompleta($saldo = 100);
         $tiempo = new TiempoFalso();
         $colectivo = new Colectivo("132","Semtur", "N");
         $colectivo->pagarCon($tarjeta, $tiempo);
