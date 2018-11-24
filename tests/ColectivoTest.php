@@ -169,7 +169,7 @@ class ColectivoTest extends TestCase {
         $colectivo = new Colectivo("132","Semtur", "N");
         $multiplicador = 1;
         $boleto1 =  $colectivo->pagaNormal($tarjeta, $tiempo, $multiplicador);
-        $this->assertEquals($colectivo->pagaNormal($tarjeta, $tiempo, $multiplicador), $boleto1);
+        $this->assertNotEquals($colectivo->pagaNormal($tarjeta, $tiempo, $multiplicador), $boleto1);
     }
 
     // public function testTrasbordo(){
