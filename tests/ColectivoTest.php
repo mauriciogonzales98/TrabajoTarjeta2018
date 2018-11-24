@@ -39,7 +39,8 @@ class ColectivoTest extends TestCase {
         $colectivo = new Colectivo("132","Semtur", "N");
         $tarjeta = new Tarjeta($saldo=0.0, $viajeplus=2);
         $tiempo = new TiempoFalso();
-        $this->assertFalse($colectivo->pagarCon($tarjeta, $tiempo));
+        $boleto = $colectivo->pagarCon($tarjeta, $tiempo);
+        $this->assertEquals($colectivo->pagarCon($tarjeta, $tiempo), $boleto);
     }
 
     public function testPagarConMedio(){
