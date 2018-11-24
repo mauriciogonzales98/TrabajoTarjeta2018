@@ -30,7 +30,7 @@ class Colectivo implements ColectivoInterface {
     public function pagarCon(TarjetaInterface $tarjeta, TiempoInterface $fecha){
 
         if($tarjeta->obtenerUltimoBoleto() == 0){
-          $tarjeta->cambiarUltimoBoleto($fecha->tiempoFalso());
+          $tarjeta->cambiarUltimoBoleto($fecha->time());
 
           if($tarjeta->obtenerTipo() == 2){
             return $this->esMedioVoleto($tarjeta, $fecha);
@@ -67,8 +67,7 @@ class Colectivo implements ColectivoInterface {
 
     public function esMedioVoleto(TarjetaInterface $tarjeta, TiempoInterface $fecha){
         $ultimo = $tarjeta->obtenerUltimoBoleto();
-        if($fecha->TiempoReal()-$ultimo<300){
-
+        if($fecha->time()-$ultimo<300){
                   $multiplicador = 2;
                   return $this->pagaNormal($tarjeta, $fecha, $multiplicador);
         }
@@ -81,7 +80,7 @@ class Colectivo implements ColectivoInterface {
 
     public function esMedioUniversitario(TarjetaInterface $tarjeta, TiempoInterface $fecha){
       $ultimo = $tarjeta->obtenerUltimoBoleto();
-      if(($fecha->TiempoReal()-$ultimo<300) && $tarjeta->boletosDia($fecha)){
+      if(($fecha->time()-$ultimo<300) && $tarjeta->boletosDia($fecha)){
           $multiplicador = 2;
           return $this->pagaNormal($tarjeta, $fecha, $multiplicador);
       }
@@ -93,8 +92,8 @@ class Colectivo implements ColectivoInterface {
     }
 
     public function esFranCompleta(TarjetaInterface $tarjeta, TiempoInterface $fecha){
-                  $multiplicador = 0;
-                  return $this->pagaNormal($tarjeta, $fecha, $multiplicador);
+        $multiplicador = 0;
+        return $this->pagaNormal($tarjeta, $fecha, $multiplicador);
     }
 
     public function pagaNormal(TarjetaInterface $tarjeta, TiempoInterface $fecha, $multiplicador){
@@ -148,7 +147,7 @@ class Colectivo implements ColectivoInterface {
 
   public function esTrasbordo(TarjetaInterface $tarjeta, TiempoInterface $fecha){
       if($tarjeta->lineasDistintas()){
-          $tiempo = $fecha->TiempoReal();
+          $tiempo = $fecha->time();
           $dia=date("w", $tiempo); //Domingo 0, Sabado 6
           $hora=date("G", $tiempo); //Hora de 0 a 23
 
@@ -157,13 +156,13 @@ class Colectivo implements ColectivoInterface {
           }
 
           if($dia == 0 || $fecha->esFeriado()){
-             if($hora >= 6 && $hora <=22 && $fecha->TiempoReal()-$tarjeta->obtenerUltimoBoleto()<5400){
+             if($hora >= 6 && $hora <=22 && $fecha->time()-$tarjeta->obtenerUltimoBoleto()<5400){
                 return true;
             }
           }
 
           if($dia >= 1 && $dia <= 5 && $hora >= 6 && $hora <=22){
-              if($fecha->TiempoReal()-$tarjeta->obtenerUltimoBoleto()<3600){
+              if($fecha->time()-$tarjeta->obtenerUltimoBoleto()<3600){
                   return true; 
               }
               else {
@@ -171,10 +170,10 @@ class Colectivo implements ColectivoInterface {
               }
           }
           elseif($dia == 6){
-              if($hora >= 6 && $hora <=14 && $fecha->TiempoReal()-$tarjeta->obtenerUltimoBoleto()<3600){
+              if($hora >= 6 && $hora <=14 && $fecha->time()-$tarjeta->obtenerUltimoBoleto()<3600){
                  return true;
               }
-              elseif($hora > 14 && $hora <= 22 && $fecha->TiempoReal()-$tarjeta->obtenerUltimoBoleto()<5400){
+              elseif($hora > 14 && $hora <= 22 && $fecha->time()-$tarjeta->obtenerUltimoBoleto()<5400){
                   return true;
               }
               else{

@@ -10,20 +10,20 @@ class TiempoTest extends TestCase {
         $tiempo = new Tiempo();
         $t=time();
 
-        $this->assertEquals($tiempo->TiempoReal(),$t);
+        $this->assertEquals($tiempo->time(),$t);
     }
 
     public function testTiempoFalso(){
-        $tiempo= new Tiempo();
+        $tiempo= new TiempoFalso();
         
 
-        $this->assertEquals($tiempo->tiempoFalso(),0);
+        $this->assertEquals($tiempo->time(),0);
         
-        $tiempo->avanza(1);
-        $this->assertEquals($tiempo->tiempoFalso(),1);
+        $tiempo->Avanzar(1);
+        $this->assertEquals($tiempo->time(),1);
         
-        $tiempo->avanza(59);
-        $this->assertEquals($tiempo->tiempoFalso(),60);
+        $tiempo->Avanzar(59);
+        $this->assertEquals($tiempo->time(),60);
 
         $this->assertFalse($tiempo->esFeriado());
     }
