@@ -12,7 +12,7 @@ class Tarjeta implements TarjetaInterface {
     protected $Tipo;
     protected $ultimoboleto;
     protected $boleto;
-    protected $colectivoActual;
+    protected $colectivoActual = NULL;
     protected $colectivoAnterior = NULL;
 
     public function __construct ($saldo=0.0, $precio=14.8, $viajePlus=2, $totaldeviajes=0, $Tipo=0, $ultimoboleto=0, $boleto=NULL){

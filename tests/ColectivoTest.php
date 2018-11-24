@@ -109,7 +109,8 @@ class ColectivoTest extends TestCase {
         $colectivo = new Colectivo("112", "Mixta", "R");
         $colectivo2 = new Colectivo("110", "semtur", "N");
 
-        $colectivo->pagarCon($tarjeta, $tiempo);
+        $multiplicador = 1;
+        $colectivo->pagaNormal($tarjeta, $tiempo, $multiplicador);
         //$colectivo2->pagarCon($tarjeta, $tiempo);
 
         $this->assertTrue($colectivo->esTrasbordo($tarjeta, $tiempo));
