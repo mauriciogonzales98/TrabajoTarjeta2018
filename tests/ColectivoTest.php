@@ -53,9 +53,10 @@ class ColectivoTest extends TestCase {
         $boleto = $colectivo->pagarCon($tarjeta1, $tiempo);
         $this->assertEquals($colectivo->pagarCon($tarjeta1, $tiempo), $boleto);
 
-        $tarjeta2 = new FranquiciaMedia($saldo=100.0, $precio=7.4, $viajePlus=2, $totaldeviajes=0, $Tipo=2, $ultimoboleto=0);
+        $tarjeta2 = new FranquiciaMedia($saldo = 100.0);
         $boleto2 = $colectivo->pagarCon($tarjeta2, $tiempo);
         $this->assertEquals($colectivo->pagarCon($tarjeta2, $tiempo), $boleto2);
+
         $boleto3 = $colectivo->pagarCon($tarjeta2, $tiempo);
         $this->assertEquals($colectivo->pagarCon($tarjeta2, $tiempo), $boleto3);
     }
@@ -64,10 +65,10 @@ class ColectivoTest extends TestCase {
         $tarjeta = new FranquiciaMedia($saldo = 100);
         $tiempo = new TiempoFalso();
         $colectivo = new Colectivo("132","Semtur", "N");
-        $colectivo->esMedioVoleto($tarjeta, $tiempo);
-        $tiempo->Avanzar($segundos = 400);
-        $boleto = $colectivo->esMedioVoleto($tarjeta, $tiempo); 
-        $this->assertEquals($colectivo->esMedioVoleto($tarjeta, $tiempo) , $boleto);
+        $colectivo->pagarCon($tarjeta, $tiempo);
+        $tiempo->Avanzar($segundos = 3600);
+        $boleto = $colectivo->pagarCon($tarjeta, $tiempo); 
+        $this->assertEquals($colectivo->pagarCon($tarjeta, $tiempo) , $boleto);
     }
 
     public function testPagarConMedioUniversitario(){
