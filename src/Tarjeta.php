@@ -13,7 +13,7 @@ class Tarjeta implements TarjetaInterface {
     protected $ultimoboleto;
     protected $boleto;
     protected $colectivoActual;
-    protected $colectivoAnterior;
+    protected $colectivoAnterior = NULL;
 
     public function __construct ($saldo=0.0, $precio=14.8, $viajePlus=2, $totaldeviajes=0, $Tipo=0, $ultimoboleto=0, $boleto=NULL){
       $this->saldo = $saldo;
