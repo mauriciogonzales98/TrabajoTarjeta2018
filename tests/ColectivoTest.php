@@ -75,7 +75,7 @@ class ColectivoTest extends TestCase {
 
         $boleto3 = $colectivo->pagarCon($tarjeta1, $tiempo);
         $this->assertFalse($colectivo->pagarCon($tarjeta1, $tiempo), $boleto3);
-        $this->assertTrue($tarjeta1->lineasDistintas());
+        //$this->assertTrue($tarjeta1->lineasDistintas());
 
     }
 
