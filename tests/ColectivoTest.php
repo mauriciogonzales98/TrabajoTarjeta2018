@@ -179,18 +179,18 @@ class ColectivoTest extends TestCase {
         $this->assertNotEquals($colectivo2->pagaNormal($tarjeta2, $tiempo2, $multiplicador2), $boleto2);
     }
 
-    // public function testTrasbordo(){
-    //     $tarjeta = new Tarjeta();
-    //     $tiempo = new TiempoFalso();
-    //     $colectivo = new Colectivo("112", "Mixta", "R");
-    //     $colectivo2 = new Colectivo("110", "semtur", "N");
+    public function testTrasbordo(){
+        $tarjeta = new Tarjeta();
+        $tiempo = new TiempoFalso();
+        $colectivo = new Colectivo("112", "Mixta", "R");
+        $colectivo2 = new Colectivo("110", "semtur", "N");
 
-    //     $multiplicador = 1;
-    //     $colectivo->pagaNormal($tarjeta, $tiempo, $multiplicador);
-    //     //$colectivo2->pagarCon($tarjeta, $tiempo);
+        $multiplicador = 1;
+        $colectivo->pagaNormal($tarjeta, $tiempo, $multiplicador);
+        //$colectivo2->pagarCon($tarjeta, $tiempo);
 
-    //     $this->assertTrue($colectivo->esTrasbordo($tarjeta, $tiempo));
+        $this->assertTrue($colectivo->esTrasbordo($tarjeta, $tiempo));
 
-    // }
+    }
 
 }
