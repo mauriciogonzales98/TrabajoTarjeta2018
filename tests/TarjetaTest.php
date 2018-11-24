@@ -99,7 +99,7 @@ class TarjetaTest extends TestCase {
       $tiempoReal = new Tiempo();
       $this->assertTrue($tarjeta->boletosDia($tiempoReal));
       $this->assertTrue($tarjeta->boletosDia($tiempoReal));
-      $this->assertTrue($tarjeta->boletosDia($tiempoReal));
+      $this->assertFalse($tarjeta->boletosDia($tiempoReal));
       $tiempoFalso = new TiempoFalso();
       $this->assertTrue($tarjeta->boletosDia($tiempoFalso));
       
