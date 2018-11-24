@@ -95,5 +95,13 @@ class TarjetaTest extends TestCase {
     public function testFMU() {
       $tarjeta = new FranquiciaMediaUniversitaria();
       $this->assertEquals($tarjeta->getCantBoletos(),0);
+
+      $tiempoReal = new Tiempo();
+      $this->assertTrue($tarjeta->boletosDia($tiempoReal));
+      $this->assertTrue($tarjeta->boletosDia($tiempoReal));
+      $this->assertTrue($tarjeta->boletosDia($tiempoReal));
+      $tiempoFalso = new TiempoFalso();
+      $this->assertTrue($tarjeta->boletosDia($tiempoFalso));
+      
     }
 }
