@@ -98,7 +98,7 @@ class ColectivoTest extends TestCase {
         $colectivo->pagarCon($tarjeta, $tiempo);
         $tiempo->Avanzar($segundos = 3600);
         $boleto = $colectivo->pagarCon($tarjeta, $tiempo); 
-        $this->assertEquals($colectivo->pagarCon($tarjeta, $tiempo) , $boleto);
+        $this->assertNotEquals($colectivo->pagarCon($tarjeta, $tiempo) , $boleto);
     }
 
     public function testPagarConMedioUniversitario(){
