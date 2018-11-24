@@ -162,6 +162,15 @@ class ColectivoTest extends TestCase {
         $boleto = $colectivo->pagarCon($tarjeta, $tiempo);
         $this->assertEquals($colectivo->pagarCon($tarjeta, $tiempo), $boleto);
     }
+
+    public function testPagaNormal2(){
+        $tarjeta = new Tarjeta($saldo=1000.0, $precio=14.8, $viajePlus=1, $totaldeviajes=0, $Tipo=0, $ultimoboleto=0, $boleto=NULL);
+        $tiempo = new TiempoFalso();
+        $colectivo = new Colectivo("132","Semtur", "N");
+        $boleto1 =  $colectivo->pagaNormal($tarjeta, $tiempo);
+        $this->assertEquals($colectivo->pagaNormal($tarjeta, $tiempo), $boleto1);
+    }
+
     // public function testTrasbordo(){
     //     $tarjeta = new Tarjeta();
     //     $tiempo = new TiempoFalso();
@@ -175,4 +184,5 @@ class ColectivoTest extends TestCase {
     //     $this->assertTrue($colectivo->esTrasbordo($tarjeta, $tiempo));
 
     // }
+
 }
