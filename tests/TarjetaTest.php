@@ -83,9 +83,13 @@ class TarjetaTest extends TestCase {
       $this->assertTrue($tarjeta2->restarSaldo($pago));
     }
 
-    public function testobtenerCant() {
+    public function testBoletos() {
       $tarjeta = new Tarjeta();
       $this->assertEquals($tarjeta->obtenerCant(), 1);
+
+      $boleto = new Boleto(NULL, NULL, $tarjeta, NULL, 2);
+      $tarjeta->cambiarBoleto($boleto);
+      $this->assertEquals($tarjeta->obtenerBoleto(), $boleto);
     }
 
     public function testFMU() {
