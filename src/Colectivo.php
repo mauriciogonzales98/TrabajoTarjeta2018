@@ -47,7 +47,7 @@ class Colectivo implements ColectivoInterface {
           }
         }
           else{
-            $ultimo=$tarjeta->obtenerUltimoBoleto();
+            $tarjeta->cambiarUltimoBoleto($fecha->time());
 
             if($tarjeta->obtenerTipo() == 2){
               return $this->esMedioVoleto($tarjeta, $fecha);

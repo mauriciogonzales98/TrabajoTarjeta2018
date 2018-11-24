@@ -48,13 +48,15 @@ class ColectivoTest extends TestCase {
         $colectivo = new Colectivo("132","Semtur", "N");
         $this->assertFalse($colectivo->pagarCon($tarjeta, $tiempo));
 
-        $tarjeta1 = new FranquiciaMedia($saldo=20.0, $precio = 7.4, $viajeplus=2);
-        $boleto = $colectivo->pagarCon($tarjeta1, $tiempo);
-        $this->assertEquals($colectivo->pagarCon($tarjeta1, $tiempo), $boleto);
+        // $tarjeta1 = new FranquiciaMedia($saldo=20.0, $precio = 7.4, $viajeplus=2);
+        // $boleto = $colectivo->pagarCon($tarjeta1, $tiempo);
+        // $this->assertEquals($colectivo->pagarCon($tarjeta1, $tiempo), $boleto);
 
         $tarjeta2 = new FranquiciaMedia($saldo=100.0, $precio=7.4, $viajePlus=2, $totaldeviajes=0, $Tipo=2, $ultimoboleto=0);
         $boleto2 = $colectivo->pagarCon($tarjeta2, $tiempo);
         $this->assertEquals($colectivo->pagarCon($tarjeta2, $tiempo), $boleto2);
+        $boleto3 = $colectivo->pagarCon($tarjeta2, $tiempo);
+        $this->assertEquals($colectivo->pagarCon($tarjeta2, $tiempo), $boleto3);
     }
 
     public function testPagarConMedioUniversitario(){
@@ -63,6 +65,13 @@ class ColectivoTest extends TestCase {
         $tiempo = new TiempoFalso();
         $colectivo = new Colectivo("132","Semtur", "N");
         $this->assertFalse($colectivo->pagarCon($tarjeta, $tiempo));
+        
+        $tarjeta->recargar(100);
+        $boleto = $colectivo->pagarCon($tarjeta, $tiempo);
+        $this->assertEquals($colectivo->pagarCon($tarjeta, $tiempo), $boleto);
+        $boleto2 = $colectivo->pagarCon($tarjeta, $tiempo);
+        $this->assertEquals($colectivo->pagarCon($tarjeta, $tiempo), $boleto2);
+
     }
 
     public function testPagarConFranquiciaCompleta(){
@@ -71,6 +80,9 @@ class ColectivoTest extends TestCase {
         $colectivo = new Colectivo("132","Semtur", "N");
         $boleto = $colectivo->pagarCon($tarjeta, $tiempo);
         $this->assertEquals($colectivo->pagarCon($tarjeta, $tiempo), $boleto);
+
+        $boleto2 = $colectivo->pagarCon($tarjeta, $tiempo);
+        $this->assertEquals($colectivo->pagarCon($tarjeta, $tiempo), $boleto2);
     }
 
     public function testPagarConMedio2(){
