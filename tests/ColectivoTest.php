@@ -66,7 +66,7 @@ class ColectivoTest extends TestCase {
         $colectivo = new Colectivo("132","Semtur", "N");
         $colectivo->esMedioVoleto($tarjeta, $tiempo);
         $tiempo->Avanzar(100);
-        $boleto = $colectivo->esMedioVoleto();
+        $boleto = $colectivo->esMedioVoleto(); 
         $this->assertEquals($colectivo->esMedioVoleto($tarjeta, $tiempo) , $boleto);
     }
 
