@@ -18,7 +18,7 @@ namespace TrabajoTarjeta;
 
  	public function boletosDia(TiempoInterface $tiempo){
 
- 		$dia = date('j', $tiempo->time());
+ 		$dia = date('j', $tiempo->time()); //dia del mes 1 al 31
 
 	 	if($this->diaViejo != $dia){
 	 		$this->cantBoletosDia = 0;
