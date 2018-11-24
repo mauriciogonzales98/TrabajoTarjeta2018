@@ -73,6 +73,10 @@ class ColectivoTest extends TestCase {
         $boleto2 = $colectivo->pagarCon($tarjeta1, $tiempo);
         $this->assertEquals($colectivo->pagarCon($tarjeta1, $tiempo), $boleto2);
 
+        $boleto3 = $colectivo->pagarCon($tarjeta1, $tiempo);
+        $this->assertNotEquals($colectivo->pagarCon($tarjeta1, $tiempo), $boleto3);
+        $this->assertTrue($tarjeta1->lineasDistintas());
+
     }
 
     public function testPagarConFranquiciaCompleta(){
