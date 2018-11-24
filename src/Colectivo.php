@@ -46,7 +46,7 @@ class Colectivo implements ColectivoInterface {
             return $this->pagaNormal($tarjeta, $fecha, $multiplicador);
           }
         }
-          else{
+        else{
             $tarjeta->cambiarUltimoBoleto($fecha->time());
 
             if($tarjeta->obtenerTipo() == 2){
@@ -62,18 +62,18 @@ class Colectivo implements ColectivoInterface {
               $multiplicador = 1;
               return $this->pagaNormal($tarjeta, $fecha, $multiplicador);
             }
-          }
+        }
     }
 
     public function esMedioVoleto(TarjetaInterface $tarjeta, TiempoInterface $fecha){
         $ultimo = $tarjeta->obtenerUltimoBoleto();
         if($fecha->time()-$ultimo<300){
-                  $multiplicador = 2;
-                  return $this->pagaNormal($tarjeta, $fecha, $multiplicador);
+            $multiplicador = 2;
+            return $this->pagaNormal($tarjeta, $fecha, $multiplicador);
         }
         else{
-                $multiplicador = 1;
-                return $this->pagaNormal($tarjeta, $fecha, $multiplicador);
+            $multiplicador = 1;
+            return $this->pagaNormal($tarjeta, $fecha, $multiplicador);
         }
 
     }
@@ -110,7 +110,12 @@ class Colectivo implements ColectivoInterface {
             $tarjeta->colectivoAntyAct($this);
             return $boleto1;
           }else{
-            return false;
+            $tarjeta->restarSaldo($precio);
+            $pagaplus = 1;
+            $boleto1= new Boleto($precio, $this, $tarjeta, $fecha, $pagaplus);
+            $tarjeta->cambiarBoleto($boleto1);
+            $tarjeta->colectivoAntyAct($this);
+            return $boleto1;
           }
         }
         elseif($tarjeta->obtenercantPlus() == 1){
@@ -126,9 +131,13 @@ class Colectivo implements ColectivoInterface {
             return $boleto1;
           }
           else{
-            return false;
+            $pagaplus = 1; 
+            $tarjeta->restarSaldo($precio);
+            $boleto1 = new Boleto($precio,$this,$tarjeta,$fecha,$pagaplus);
+            $tarjeta->cambiarBoleto($boleto1);
+            $tarjeta->colectivoAntyAct($this);
+            return $boleto1;
           }
-
         }
         if($saldo>($precio+29.6)){
             
