@@ -170,14 +170,14 @@ class ColectivoTest extends TestCase {
         $colectivo = new Colectivo("132","Semtur", "N");
         $multiplicador = 1;
         //$boleto1 =  $colectivo->pagaNormal($tarjeta, $tiempo, $multiplicador);
-        $this->assertEquals(getclass($colectivo->pagaNormal($tarjeta, $tiempo, $multiplicador)), "TrabajoTarjeta\Boleto");
+        $this->assertEquals(get_class($colectivo->pagaNormal($tarjeta, $tiempo, $multiplicador)), "TrabajoTarjeta\Boleto");
 
         $tarjeta2 = new Tarjeta($saldo=1000.0, $precio=14.8, $viajePlus=0, $totaldeviajes=0, $Tipo=0, $ultimoboleto=0, $boleto=NULL);
         $tiempo2 = new TiempoFalso();
         $colectivo2 = new Colectivo("132","Semtur", "N");
         $multiplicador2 = 1;
         //$boleto2 =  $colectivo2->pagaNormal($tarjeta2, $tiempo2, $multiplicador2);
-        $this->assertEquals(getclass($colectivo2->pagaNormal($tarjeta2, $tiempo2, $multiplicador2)), "TrabajoTarjeta\Boleto");
+        $this->assertEquals(get_class($colectivo2->pagaNormal($tarjeta2, $tiempo2, $multiplicador2)), "TrabajoTarjeta\Boleto");
     }
 
     public function testTrasbordo(){
