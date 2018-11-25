@@ -107,14 +107,14 @@ class Colectivo implements ColectivoInterface {
             $pagaplus = 0;
             $boleto1= new Boleto($precio, $this, $tarjeta, $fecha, $pagaplus);
             $tarjeta->cambiarBoleto($boleto1);
-            $tarjeta->colectivoAntyAct($this);
+            // $tarjeta->colectivoAntyAct($this);
             return $boleto1;
           }else{
             $tarjeta->restarSaldo($precio);
             $pagaplus = 1;
             $boleto1= new Boleto($precio, $this, $tarjeta, $fecha, $pagaplus);
             $tarjeta->cambiarBoleto($boleto1);
-            $tarjeta->colectivoAntyAct($this);
+            // $tarjeta->colectivoAntyAct($this);
             return $boleto1;
           }
         }
@@ -127,7 +127,7 @@ class Colectivo implements ColectivoInterface {
             $tarjeta->restarSaldo($precio);
             $boleto1 = new Boleto($precio,$this,$tarjeta,$fecha,$pagaplus);
             $tarjeta->cambiarBoleto($boleto1);
-            $tarjeta->colectivoAntyAct($this);
+            // $tarjeta->colectivoAntyAct($this);
             return $boleto1;
           }
           else{
@@ -135,7 +135,7 @@ class Colectivo implements ColectivoInterface {
             $tarjeta->restarSaldo($precio);
             $boleto1 = new Boleto($precio,$this,$tarjeta,$fecha,$pagaplus);
             $tarjeta->cambiarBoleto($boleto1);
-            $tarjeta->colectivoAntyAct($this);
+            // $tarjeta->colectivoAntyAct($this);
             return $boleto1;
           }
         }
@@ -146,7 +146,7 @@ class Colectivo implements ColectivoInterface {
             $tarjeta->restarSaldo($precio);
             $boleto1 = new Boleto($precio,$this,$tarjeta,$fecha,$pagaplus);
             $tarjeta->cambiarBoleto($boleto1);
-            $tarjeta->colectivoAntyAct($this);
+            // $tarjeta->colectivoAntyAct($this);
             return $boleto1;
         }
         else{

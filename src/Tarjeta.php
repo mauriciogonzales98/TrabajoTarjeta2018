@@ -83,16 +83,16 @@ class Tarjeta implements TarjetaInterface {
         } 
     }
 
-    public function colectivoAntyAct(ColectivoInterface $colectivo){
-        if($this->colectivoAnterior == NULL){
-          $this->colectivoAnterior = $colectivo;
-        }
-        else{
-          $this->colectivoAnterior = $this->colectivoActual;
-        }
+    // public function colectivoAntyAct(ColectivoInterface $colectivo){
+    //     if($this->colectivoAnterior == NULL){
+    //       $this->colectivoAnterior = $colectivo;
+    //     }
+    //     else{
+    //       $this->colectivoAnterior = $this->colectivoActual;
+    //     }
 
-        $this->colectivoActual = $colectivo;
-    }
+    //     $this->colectivoActual = $colectivo;
+    // }
 
     public function obtenerTipo(){
         return $this->Tipo;
