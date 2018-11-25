@@ -89,14 +89,6 @@ interface TarjetaInterface {
 
 
    /**
-     * Obtiene el ultimo boleto emitido.
-     *
-     * @return int
-     */
-        public function obtenerBoleto();
-
-
-   /**
      * Cambias el ultimo boleto emitido.
      *
      * @return int
