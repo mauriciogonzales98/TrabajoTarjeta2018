@@ -62,7 +62,7 @@ class ColectivoTest extends TestCase {
     }
 
     public function testMedio(){
-        $tarjeta = new FranquiciaMedia($saldo = 100);
+        $tarjeta = new FranquiciaMedia($saldo = 100.0);
         $tiempo = new TiempoFalso();
         $colectivo = new Colectivo("132","Semtur", "N");
         $colectivo->pagarCon($tarjeta, $tiempo);
@@ -72,7 +72,7 @@ class ColectivoTest extends TestCase {
     }
 
     public function testMedioUniversitario(){
-        $tarjeta = new FranquiciaMediaUniversitaria($saldo = 100);
+        $tarjeta = new FranquiciaMediaUniversitaria($saldo = 100.0);
         $tiempo = new TiempoFalso();
         $colectivo = new Colectivo("132","Semtur", "N");
         $colectivo->pagarCon($tarjeta, $tiempo);
@@ -82,7 +82,7 @@ class ColectivoTest extends TestCase {
     }
 
     public function testCompleta(){
-        $tarjeta = new FranquiciaCompleta($saldo = 100);
+        $tarjeta = new FranquiciaCompleta($saldo = 100.0);
         $tiempo = new TiempoFalso();
         $colectivo = new Colectivo("132","Semtur", "N");
         $this->assertEquals(get_class($colectivo->pagarCon($tarjeta, $tiempo)), "TrabajoTarjeta\Boleto");
@@ -92,7 +92,7 @@ class ColectivoTest extends TestCase {
     }
 
     public function testNormal(){
-        $tarjeta = new Tarjeta($saldo = 100);
+        $tarjeta = new Tarjeta($saldo = 100.0);
         $tiempo = new TiempoFalso();
         $colectivo = new Colectivo("132","Semtur", "N");
         $colectivo->pagarCon($tarjeta, $tiempo);
