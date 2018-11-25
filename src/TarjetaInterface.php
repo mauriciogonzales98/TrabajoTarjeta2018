@@ -87,12 +87,4 @@ interface TarjetaInterface {
      */
         public function obtenerCant();
 
-
-   /**
-     * Cambias el ultimo boleto emitido.
-     *
-     * @return int
-     */
-        public function cambiarBoleto($bol);
-
 }
