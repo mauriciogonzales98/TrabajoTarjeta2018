@@ -164,8 +164,14 @@ class ColectivoTest extends TestCase {
         $colectivo2 = new Colectivo("132","Semtur", "N");
         $multiplicador2 = 1;
         $this->assertEquals(get_class($colectivo2->pagaNormal($tarjeta2, $tiempo2, $multiplicador2)), "TrabajoTarjeta\Boleto");
-    }
 
+        $tarjeta3 = new Tarjeta($saldo=0.0, $precio=14.8, $viajePlus=1, $totaldeviajes=0, $Tipo=0, $ultimoboleto=0, $boleto=NULL);
+        $this->assertEquals(get_class($colectivo2->pagarCon($tarjeta3, $tiempo2)), "TrabajoTarjeta\Boleto");
+
+        $tarjeta4 = new Tarjeta($saldo=0.0, $precio=14.8, $viajePlus=0, $totaldeviajes=0, $Tipo=0, $ultimoboleto=0, $boleto=NULL);
+        $this->assertFalse($colectivo2->pagarCon($tarjeta4, $tiempo2));
+    }
+    
     public function testMedios(){
         $tarjetaMedio = new FranquiciaMedia($saldo=100.0, $precio=7.4, $viajePlus=2, $totaldeviajes=0, $Tipo=2, $ultimoboleto=1000);
         $tarjetaUni = new FranquiciaMediaUniversitaria($saldo=100.0, $precio=7.4, $viajePlus=2, $totaldeviajes=0, $Tipo=3, $ultimoboleto=1000);
