@@ -67,7 +67,7 @@ class Colectivo implements ColectivoInterface {
 
     public function esMedioVoleto(TarjetaInterface $tarjeta, TiempoInterface $fecha){
         $ultimo = $tarjeta->obtenerUltimoBoleto();
-        if(abs($ultimo-$fecha->time())<300){
+        if($fecha->time()-$ultimo < 300){
             $multiplicador = 2;
             return $this->pagaNormal($tarjeta, $fecha, $multiplicador);
         }
@@ -80,7 +80,7 @@ class Colectivo implements ColectivoInterface {
 
     public function esMedioUniversitario(TarjetaInterface $tarjeta, TiempoInterface $fecha){
       $ultimo = $tarjeta->obtenerUltimoBoleto();
-      if( abs(($ultimo-$fecha->time())>300 ) && $tarjeta->boletosDia($fecha)){
+      if(($fecha->time()-$ultimo > 300) && $tarjeta->boletosDia($fecha)){
           $multiplicador = 1;
           return $this->pagaNormal($tarjeta, $fecha, $multiplicador);
       }
