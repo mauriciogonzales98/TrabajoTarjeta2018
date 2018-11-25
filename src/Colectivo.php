@@ -102,7 +102,7 @@ class Colectivo implements ColectivoInterface {
           $precio=$tarjeta->obtenerPrecio() * $multiplicador;
         if($tarjeta->obtenercantPlus() == 2){
           
-          if($saldo>$precio){
+          if($saldo>=$precio){
             $tarjeta->restarSaldo($precio);
             $pagaplus = 0;
             $boleto1= new Boleto($precio, $this, $tarjeta, $fecha, $pagaplus);
@@ -120,7 +120,7 @@ class Colectivo implements ColectivoInterface {
         }
         elseif($tarjeta->obtenercantPlus() == 1){
 
-          if($saldo>($precio+14.8)){
+          if($saldo>=($precio+14.8)){
             
             $precio += 14.8;
             $pagaplus = 1; 
@@ -139,7 +139,7 @@ class Colectivo implements ColectivoInterface {
             return $boleto1;
           }
         }
-        if($saldo>($precio+29.6)){
+        if($saldo>=($precio+29.6)){
             
             $precio += 29.6;
             $pagaplus = 2;
