@@ -32,8 +32,7 @@ class Tarjeta implements TarjetaInterface {
           if( $monto == 962.59) {
             $this->saldo += ($monto + 221.58);
             return true;
-          } 
-          else {
+          } else {
               if ($monto == 510.15){
                 $this->saldo += ($monto+81.93);
                 return true;
@@ -42,8 +41,7 @@ class Tarjeta implements TarjetaInterface {
                 return true;
               }
           }
-      }
-      else 
+      } else 
       {
         return FALSE;
       }
@@ -72,13 +70,11 @@ class Tarjeta implements TarjetaInterface {
           $this->saldo -= $pago;  
           $this->viajePlus=2;
           return true;          
-        }
-        else{
+        } else{
           if($this->viajePlus > 0){
             $this->viajePlus -= 1;
             return true; 
-          }
-          else{
+          } else{
             return false;
           }
         } 
@@ -107,7 +103,7 @@ class Tarjeta implements TarjetaInterface {
       $this->ultimoboleto = $tiempo;
     }
 
-     public function obtenerCant(){
+      public function obtenerCant(){
         $this->totaldeviajes += 1;
         return $this->totaldeviajes;
     }
@@ -140,8 +136,7 @@ class Tarjeta implements TarjetaInterface {
 
       if($linea1 != $linea2 || $bandera1 != $bandera2 ){
         return TRUE;
-      }
-      else{
+      } else{
         return FALSE;
       }
     }

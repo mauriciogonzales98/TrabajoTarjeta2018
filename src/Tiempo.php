@@ -3,7 +3,7 @@ namespace TrabajoTarjeta;
 
 class Tiempo implements TiempoInterface {
 
-    public function time(){
+    public function time() {
         return time();
     }
 

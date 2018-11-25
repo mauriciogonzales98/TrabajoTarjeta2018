@@ -5,7 +5,7 @@ namespace TrabajoTarjeta;
 
  	protected $cantVoletosDia;
 
-	public function __construct($saldo=0.0, $precio=7.4, $viajePlus=2, $totaldeviajes=0, $Tipo=3, $ultimoboleto=0, $boleto=NULL){
+	public function __construct($saldo = 0.0, $precio = 7.4, $viajePlus = 2, $totaldeviajes = 0, $Tipo = 3, $ultimoboleto = 0, $boleto = NULL) {
 			$this->saldo = $saldo;
 			$this->precio = $precio;
 			$this->viajePlus = $viajePlus;
@@ -30,13 +30,11 @@ namespace TrabajoTarjeta;
 	 		$this->diaViejo = $dia;
 	 		$this->cantBoletosDia += 1;
 	 		return true;
-	 	}
-	 	else{
+	 	} else{
 	 		if($this->cantBoletosDia < 2){
 	 			$this->cantBoletosDia += 1;
 	 			return true;
-	 		}
-	 		else{
+	 		} else{
 	 			return false;
 	 		}
 	 	}
