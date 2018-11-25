@@ -5,11 +5,16 @@ namespace TrabajoTarjeta;
 
  	protected $cantVoletosDia;
 
-	public function __construct(){
-		  $this->precio = 7.4;
-		  $this->diaViejo = 0;
-		  $this->Tipo = 3;
-		  $this->cantBoletosDia = 0;
+	public function __construct($saldo=0.0, $precio=7.4, $viajePlus=2, $totaldeviajes=0, $Tipo=3, $ultimoboleto=0, $boleto=NULL){
+			$this->saldo = $saldo;
+			$this->precio = $precio;
+			$this->viajePlus = $viajePlus;
+			$this->totaldeviajes = $totaldeviajes;
+			$this->ultimoboleto = $ultimoboleto;
+			$this->boleto = $boleto;
+			$this->diaViejo = 0;
+			$this->Tipo = $Tipo;
+			$this->cantBoletosDia = 0;
 		}
 
  	public function getCantBoletos(){
