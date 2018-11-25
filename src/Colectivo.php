@@ -175,6 +175,9 @@ class Colectivo implements ColectivoInterface {
     }
 
   public function esTrasbordo(TarjetaInterface $tarjeta, TiempoInterface $fecha){
+    if($tarjeta->obtenerBoleto() == NULL){
+      return false;
+    }
       if($tarjeta->lineasDistintas($this)){
           $tiempo = $fecha->time();
           $dia=date("w", $tiempo); //Domingo 0, Sabado 6
