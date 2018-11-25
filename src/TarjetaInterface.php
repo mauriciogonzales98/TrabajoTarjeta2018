@@ -38,7 +38,7 @@ interface TarjetaInterface {
         public function obtenercantPlus();
 
 
-   /**
+    /**
      * Obtiene el precio del boleto de la tarjeta 
      *
      * @return int
@@ -46,14 +46,14 @@ interface TarjetaInterface {
         public function obtenerPrecio();
 
 
-   /**
+    /**
      * Obtiene el ID de la tarjeta correspondiente
      *
      * @return int
      */
         public function obtenerIDtarjeta();
 
-   /**
+    /**
      * Obtiene el Tipo de la tarjeta correspondiente
      *
      * @return int
@@ -61,7 +61,7 @@ interface TarjetaInterface {
         public function obtenerTipo();
 
 
-   /**
+    /**
      * Obtiene el ultimo boleto emitido con la tarjeta
      *
      * @return int
@@ -80,7 +80,7 @@ interface TarjetaInterface {
         public function cambiarUltimoBoleto($tiempo);
 
 
-   /**
+    /**
      * Obtiene la cantidad de viajes hechos con la tarjeta correspondiente.
      *
      * @return int

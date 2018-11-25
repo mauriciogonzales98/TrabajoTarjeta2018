@@ -15,7 +15,7 @@ class Boleto implements BoletoInterface {
     protected $descripcion;
    
 
-    public function __construct($valor, $colectivo, $tarjeta, $fecha, $pagaplus=0) {
+    public function __construct($valor, $colectivo, $tarjeta, $fecha, $pagaplus = 0) {
         $this->valor = $valor;
         $this->colectivo = $colectivo;
         $this->idTarjeta = $tarjeta->obtenerIDtarjeta();
@@ -26,8 +26,7 @@ class Boleto implements BoletoInterface {
         $this->totalabonado = $valor + $pagaplus*14.8;
         if($pagaplus == 0){
             $this->descripcion = " ";
-        }
-        else{
+        } else{
             $this->descripcion = "Abona viajes plus: " . (string)$pagaplus*14.8;
         }
     }
@@ -59,7 +58,7 @@ class Boleto implements BoletoInterface {
     }    
 
     public function obtenerColectivo() {
-        return $this->colectivo ;
+        return $this->colectivo;
         
     }
 
