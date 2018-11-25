@@ -102,7 +102,7 @@ class Colectivo implements ColectivoInterface {
           $precio=$tarjeta->obtenerPrecio() * $multiplicador;
         if($tarjeta->obtenercantPlus() == 2){
           
-          if($this->esTrasbordo($tarjeta, $fecha) && !($tarjeta->getFueTrasbordo)){
+          if($this->esTrasbordo($tarjeta, $fecha) && !($tarjeta->getFueTrasbordo())){
             $precio = round($precio * 0.33, 2);
             $tarjeta->cambiarFueTrasbordo();
           }
@@ -126,7 +126,7 @@ class Colectivo implements ColectivoInterface {
           }
         }
         elseif($tarjeta->obtenercantPlus() == 1){
-          if($this->esTrasbordo($tarjeta, $fecha) && !($tarjeta->getFueTrasbordo)){
+          if($this->esTrasbordo($tarjeta, $fecha) && !($tarjeta->getFueTrasbordo())){
             $precio = round($precio * 0.33, 2);
             $tarjeta->cambiarFueTrasbordo();
           }
@@ -152,7 +152,7 @@ class Colectivo implements ColectivoInterface {
             return $boleto1;
           }
         }
-        if($this->esTrasbordo($tarjeta, $fecha) && !($tarjeta->getFueTrasbordo)){
+        if($this->esTrasbordo($tarjeta, $fecha) && !($tarjeta->getFueTrasbordo())){
           $precio = round($precio * 0.33, 2);
           $tarjeta->cambiarFueTrasbordo();
         }
