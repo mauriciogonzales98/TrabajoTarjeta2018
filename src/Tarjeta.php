@@ -12,6 +12,7 @@ class Tarjeta implements TarjetaInterface {
     protected $Tipo;
     protected $ultimoboleto;
     protected $boleto;
+    protected $fueTrasbordo = False;
     // protected $colectivoActual = NULL;
     // protected $colectivoAnterior = NULL;
 
@@ -117,6 +118,18 @@ class Tarjeta implements TarjetaInterface {
 
     public function cambiarBoleto(BoletoInterface $bol){
       $this->boleto = $bol;
+    }
+
+    public function getFueTrasbordo(){
+      return $this->fueTrasbordo;
+    }
+
+    public function cambiarFueTrasbordo(){
+      $this->fueTrasbordo = true;
+    }
+
+    public function FueTrasbordoFalse(){
+      $this->fueTrasbordo = false;
     }
 
     public function lineasDistintas(ColectivoInterface $colectivoActual){

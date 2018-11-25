@@ -102,6 +102,13 @@ class Colectivo implements ColectivoInterface {
           $precio=$tarjeta->obtenerPrecio() * $multiplicador;
         if($tarjeta->obtenercantPlus() == 2){
           
+          if($this->esTrasbordo($tarjeta, $fecha) && !($tarjeta->getFueTrasbordo)){
+            $precio = round($precio * 0.33, 2);
+            $tarjeta->cambiarFueTrasbordo();
+          }
+          else{
+            $tarjeta->FueTrasbordoFalse();
+          }
           if($saldo>=$precio){
             $tarjeta->restarSaldo($precio);
             $pagaplus = 0;
@@ -119,7 +126,13 @@ class Colectivo implements ColectivoInterface {
           }
         }
         elseif($tarjeta->obtenercantPlus() == 1){
-
+          if($this->esTrasbordo($tarjeta, $fecha) && !($tarjeta->getFueTrasbordo)){
+            $precio = round($precio * 0.33, 2);
+            $tarjeta->cambiarFueTrasbordo();
+          }
+          else{
+            $tarjeta->FueTrasbordoFalse();
+          }
           if($saldo>=($precio+14.8)){
             
             $precio += 14.8;
@@ -138,6 +151,13 @@ class Colectivo implements ColectivoInterface {
             // $tarjeta->colectivoAntyAct($this);
             return $boleto1;
           }
+        }
+        if($this->esTrasbordo($tarjeta, $fecha) && !($tarjeta->getFueTrasbordo)){
+          $precio = round($precio * 0.33, 2);
+          $tarjeta->cambiarFueTrasbordo();
+        }
+        else{
+          $tarjeta->FueTrasbordoFalse();
         }
         if($saldo>=($precio+29.6)){
             
