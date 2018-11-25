@@ -190,7 +190,10 @@ class ColectivoTest extends TestCase {
         //$colectivo2->pagarCon($tarjeta, $tiempo);
 
         $this->assertTrue($colectivo2->esTrasbordo($tarjeta, $tiempo));
-        $this->assertTrue($colectivo->esTrasbordo($tarjeta, $tiempo));
+        $this->assertFalse($colectivo->esTrasbordo($tarjeta, $tiempo));
+        $tiempo->Avanzar($segundos = 5500);
+        $colectivo->pagarCon($tarjeta, $tiempo);
+        $this->assertTrue($colectivo2->esTrasbordo($tarjeta, $tiempo));
 
     }
 
