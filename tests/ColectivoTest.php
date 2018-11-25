@@ -169,7 +169,7 @@ class ColectivoTest extends TestCase {
     public function testMedios(){
         $tarjetaMedio = new FranquiciaMedia($saldo=100.0, $precio=7.4, $viajePlus=2, $totaldeviajes=0, $Tipo=2, $ultimoboleto=1000);
         $tarjetaUni = new FranquiciaMediaUniversitaria($saldo=100.0, $precio=7.4, $viajePlus=2, $totaldeviajes=0, $Tipo=3, $ultimoboleto=1000);
-        $tiempo = new Tiempo($segundos = 500);
+        $tiempo = new TiempoFalso($segundos = 500);
         $colectivo = new Colectivo("112", "Mixta", "R");
         
         $this->assertEquals(get_class($colectivo->pagarCon($tarjetaMedio, $tiempo)), "TrabajoTarjeta\Boleto");
