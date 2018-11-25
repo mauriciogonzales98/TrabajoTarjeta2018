@@ -175,7 +175,7 @@ class ColectivoTest extends TestCase {
         $this->assertEquals(get_class($colectivo->pagarCon($tarjetaMedio, $tiempo)), "TrabajoTarjeta\Boleto");
         $this->assertEquals(get_class($colectivo->pagarCon($tarjetaUni, $tiempo)), "TrabajoTarjeta\Boleto");
 
-        $tiempo->Avanzar(1000);
+        $tiempo->Avanzar($segundos = 1000);
         $this->assertEquals(get_class($colectivo->esMedioVoleto($tarjetaMedio, $tiempo)), "TrabajoTarjeta\Boleto");
         $this->assertEquals(get_class($colectivo->esMedioUniversitario($tarjetaUni, $tiempo)), "TrabajoTarjeta\Boleto");
     }
