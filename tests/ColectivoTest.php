@@ -142,10 +142,11 @@ class ColectivoTest extends TestCase {
         $tiempo = new TiempoFalso();
         $colectivo = new Colectivo("132","Semtur", "N");
         $this->assertEquals(get_class($colectivo->pagarCon($tarjeta, $tiempo)), "TrabajoTarjeta\Boleto");
+
     }
 
     public function testPagarConFranquiciaCompleta2(){
-        $tarjeta = new FranquiciaCompleta($saldo=100.0, $precio=0, $viajePlus=2, $totaldeviajes=0, $Tipo=2, $ultimoboleto=1);
+        $tarjeta = new FranquiciaCompleta($saldo=100.0, $precio=0, $viajePlus=2, $totaldeviajes=0, $Tipo=1, $ultimoboleto=1);
         $tiempo = new TiempoFalso();
         $colectivo = new Colectivo("132","Semtur", "N");
         $this->assertEquals(get_class($colectivo->pagarCon($tarjeta, $tiempo)), "TrabajoTarjeta\Boleto");
@@ -173,6 +174,10 @@ class ColectivoTest extends TestCase {
         
         $this->assertEquals(get_class($colectivo->pagarCon($tarjetaMedio, $tiempo)), "TrabajoTarjeta\Boleto");
         $this->assertEquals(get_class($colectivo->pagarCon($tarjetaUni, $tiempo)), "TrabajoTarjeta\Boleto");
+
+        $tiempo->Avanzar(1000);
+        $this->assertEquals(get_class($colectivo->esMedioVoleto($tarjetaMedio, $tiempo)), "TrabajoTarjeta\Boleto");
+        $this->assertEquals(get_class($colectivo->esMedioUniversitario($tarjetaUni, $tiempo)), "TrabajoTarjeta\Boleto");
     }
 
     public function testTrasbordo(){
