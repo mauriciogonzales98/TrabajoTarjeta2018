@@ -123,7 +123,7 @@ class Tarjeta implements TarjetaInterface {
       $linea1 = $colectivoActual->getlinea();
       $linea2 = $this->boleto->obtenerColectivo()->getlinea();
       $bandera1 = $colectivoActual->getbandera();
-      $bandera2 = $this->boleto->obtenerColectivo()->gerbandera();
+      $bandera2 = $this->boleto->obtenerColectivo()->getbandera();
 
       if($linea1 != $linea2 || $bandera1 != $bandera2 ){
         return TRUE;
