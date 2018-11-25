@@ -193,7 +193,9 @@ class ColectivoTest extends TestCase {
         $this->assertFalse($colectivo->esTrasbordo($tarjeta, $tiempo));
         $tiempo->Avanzar($segundos = 5500);
         $colectivo->pagarCon($tarjeta, $tiempo);
-        $this->assertTrue($colectivo2->esTrasbordo($tarjeta, $tiempo));
+        $this->assertEquals(get_class($colectivo2->pagarCon($tarjeta, $tiempo)), "TrabajoTarjeta\Boleto");
+
+
 
     }
 
