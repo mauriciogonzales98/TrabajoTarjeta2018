@@ -198,7 +198,8 @@ class ColectivoTest extends TestCase {
 
     public function Trasbordo2(){
         $tarjeta = new Tarjeta($saldo = 100.0);
-        $tiempo = new TiempoFalso($segundos = 25200);
+        //$tiempo = new TiempoFalso($segundos = 25200);
+        $tiempo = new Tiempo();
         $colectivo = new Colectivo("112", "Mixta", "R");
         $colectivo2 = new Colectivo("110", "semtur", "N");
 
