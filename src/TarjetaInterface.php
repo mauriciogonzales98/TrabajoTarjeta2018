@@ -77,7 +77,7 @@ interface TarjetaInterface {
      * Modifica el valor del ultimo boleto emtido.  
      */
 
-        public function cambiarUltimoBoleto();
+        public function cambiarUltimoBoleto($tiempo);
 
 
    /**
