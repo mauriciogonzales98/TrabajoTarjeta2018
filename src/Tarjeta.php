@@ -12,8 +12,8 @@ class Tarjeta implements TarjetaInterface {
     protected $Tipo;
     protected $ultimoboleto;
     protected $boleto;
-    protected $colectivoActual = NULL;
-    protected $colectivoAnterior = NULL;
+    // protected $colectivoActual = NULL;
+    // protected $colectivoAnterior = NULL;
 
     public function __construct ($saldo=0.0, $precio=14.8, $viajePlus=2, $totaldeviajes=0, $Tipo=0, $ultimoboleto=0, $boleto=NULL){
       $this->saldo = $saldo;
@@ -115,15 +115,17 @@ class Tarjeta implements TarjetaInterface {
       return $this->boleto;
     }
 
-    public function cambiarBoleto($bol){
+    public function cambiarBoleto(BoletoInterface $bol){
       $this->boleto = $bol;
     }
 
-    public function lineasDistintas(){
-      $linea1 = $this->colectivoActual;
-      $linea2 = $this->colectivoAnterior;
+    public function lineasDistintas(ColectivoInterface $colectivoActual){
+      $linea1 = $colectivoActual->getlinea();
+      $linea2 = $this->boleto->obtenerColectivo()->getlinea();
+      $bandera1 = $colectivoActual->getbandera();
+      $bandera2 = $this->boleto->obtenerColectivo()->gerbandera();
 
-      if($linea1->getlinea() != $linea2->getlinea() || $linea1->getbandera() != $linea2->getbandera()){
+      if($linea1 != $linea2 || $bandera1 != $bandera2 ){
         return TRUE;
       }
       else{
